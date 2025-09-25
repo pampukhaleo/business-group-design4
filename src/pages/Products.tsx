@@ -1,52 +1,67 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Package, Utensils, Home, ShoppingCart, Truck, Shield } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, Package, Utensils, Home, ShoppingCart, Truck, Shield, Star, Leaf, Clock, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Products = () => {
+  const features = [
+    { icon: <Truck className="h-6 w-6" />, title: "24h Lieferung", description: "Schnelle Lieferung deutschlandweit" },
+    { icon: <Shield className="h-6 w-6" />, title: "Qualitätsgarantie", description: "100% geprüfte Produkte" },
+    { icon: <Leaf className="h-6 w-6" />, title: "Bio-Zertifiziert", description: "Nachhaltige Produkte" },
+    { icon: <Award className="h-6 w-6" />, title: "Premium Service", description: "Persönliche Beratung" },
+  ];
+
   const productCategories = [
     {
-      icon: <Utensils className="h-8 w-8" />,
-      title: "Lebensmittellieferungen",
-      description: "Professionelle Lebensmittelversorgung für Organisationen und den Handel",
+      icon: <Utensils className="h-16 w-16" />,
+      title: "Premium Lebensmittel",
+      subtitle: "Frisch & Qualitativ",
+      description: "Hochwertige Lebensmittel für Gastronomie und Großkunden",
+      badge: "Bestseller",
+      color: "products",
       items: [
-        "Frische Produkte täglich geliefert",
-        "Großhandelspreise für Organisationen",
-        "Bio- und konventionelle Lebensmittel",
-        "Spezielle Diätprodukte verfügbar",
-        "Saisonale und regionale Spezialitäten",
-        "Halal- und Koscher-Produkte"
+        { name: "Bio-Fleischprodukte", quality: "Premium", delivery: "Täglich frisch" },
+        { name: "Frisches Gemüse", quality: "Regional", delivery: "Saisonale Auswahl" },
+        { name: "Milchprodukte", quality: "Bio-zertifiziert", delivery: "Kühlkette garantiert" },
+        { name: "Backwaren", quality: "Handgemacht", delivery: "Morgens geliefert" },
+        { name: "Gewürze & Kräuter", quality: "International", delivery: "Große Auswahl" },
+        { name: "Getränke", quality: "Premium", delivery: "Alle Kategorien" }
       ]
     },
     {
-      icon: <Home className="h-8 w-8" />,
+      icon: <Home className="h-16 w-16" />,
       title: "Haushaltswaren",
-      description: "Umfassende Ausstattung für Privathaushalte und Gewerbe",
+      subtitle: "Komplett & Praktisch",
+      description: "Alles für den professionellen Haushalt und Hotellerie",
+      badge: "Neu",
+      color: "accent",
       items: [
-        "Küchenausstattung und Geschirr",
-        "Reinigungsmittel und Hygieneartikel",
-        "Bettwäsche und Heimtextilien",
-        "Kleingeräte für den Haushalt",
-        "Bürobedarf und Organisationsmittel",
-        "Dekorations- und Einrichtungsgegenstände"
+        { name: "Profi-Küchenausstattung", quality: "Gastronomie", delivery: "Sofort verfügbar" },
+        { name: "Reinigungsmittel", quality: "Professionell", delivery: "Großpackungen" },
+        { name: "Bettwäsche & Textilien", quality: "Hotel-Standard", delivery: "Verschiedene Größen" },
+        { name: "Büroartikel", quality: "Komplett-Set", delivery: "Business Pakete" },
+        { name: "Dekorations-Artikel", quality: "Modern", delivery: "Aktuelle Trends" },
+        { name: "Technik & Geräte", quality: "Energieeffizient", delivery: "Mit Garantie" }
       ]
     }
   ];
 
-  const advantages = [
+  const testimonials = [
     {
-      icon: <Truck className="h-6 w-6" />,
-      title: "Zuverlässige Lieferung",
-      description: "Pünktliche Lieferung direkt zu Ihnen"
+      name: "Hotel Metropol",
+      rating: 5,
+      text: "Ausgezeichnete Qualität und zuverlässige Lieferungen. Unser Partner seit 3 Jahren."
     },
     {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Qualitätsgarantie",
-      description: "Nur hochwertige, geprüfte Produkte"
+      name: "Restaurant Silva",
+      rating: 5,
+      text: "Frische Zutaten täglich geliefert. Die Qualität überzeugt unsere Gäste."
     },
     {
-      icon: <ShoppingCart className="h-6 w-6" />,
-      title: "Flexible Bestellungen",
-      description: "Einzelbestellungen oder regelmäßige Lieferungen"
+      name: "Klinikum Nord",
+      rating: 5,
+      text: "Professioneller Service und faire Preise für unsere Großküche."
     }
   ];
 
@@ -55,7 +70,7 @@ const Products = () => {
       {/* Back Button */}
       <div className="container mx-auto px-4 py-8">
         <Link to="/">
-          <Button variant="outline" className="mb-8 hover:shadow-soft transition-all duration-300">
+          <Button variant="outline" className="mb-8 hover:shadow-products transition-all duration-300">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Zurück zur Hauptseite
           </Button>
@@ -63,123 +78,168 @@ const Products = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="py-20 bg-primary-gradient">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
-            <Package className="h-16 w-16 text-primary-foreground mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
-              Produkte & Haushaltswaren
+      <section className="py-20 bg-products-gradient relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-5xl mx-auto animate-fade-in">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full mb-8 animate-float">
+              <Package className="h-12 w-12 text-white" />
+            </div>
+            <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
+              Premium Produkte
+              <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text">
+                & Haushaltswaren
+              </span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Hochwertige Lebensmittel und Haushaltswaren für Unternehmen und den Handel. 
-              Zuverlässige Lieferketten und flexible Lösungen für alle Ihre Bedürfnisse.
+            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8">
+              Hochwertige Lebensmittel und Haushaltswaren für Unternehmen, 
+              Gastronomie und den professionellen Handel.
             </p>
-          </div>
-        </div>
-      </section>
 
-      {/* About Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
-              Ihre verlässliche Versorgung
-            </h2>
-            <p className="text-lg text-muted-foreground mb-12">
-              Wir beliefern Restaurants, Hotels, Krankenhäuser, Schulen und andere Organisationen 
-              mit hochwertigen Lebensmitteln und Haushaltswaren. Unser Sortiment umfasst alles 
-              von frischen Produkten bis hin zu praktischen Haushaltshelfern.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {advantages.map((advantage, index) => (
-                <div key={index} className="text-center p-6 rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-300">
-                  <div className="bg-accent-gradient p-3 rounded-full w-fit mx-auto mb-4">
-                    <div className="text-accent-foreground">
-                      {advantage.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-card-foreground mb-2">
-                    {advantage.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {advantage.description}
-                  </p>
-                </div>
+            {/* Feature Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+              {features.map((feature, index) => (
+                <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CardContent className="p-4 text-center">
+                    <div className="text-white/80 mb-2">{feature.icon}</div>
+                    <div className="text-sm font-bold text-white">{feature.title}</div>
+                    <div className="text-xs text-white/70">{feature.description}</div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Product Categories */}
-      <section className="py-20 bg-secondary/30">
+      {/* Products Catalog */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-                Unser Sortiment
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Von frischen Lebensmitteln bis zu praktischen Haushaltswaren
-              </p>
-            </div>
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              Unser Sortiment
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Von frischen Lebensmitteln bis zu praktischen Haushaltswaren - 
+              alles aus einer Hand
+            </p>
+          </div>
 
-            <div className="grid gap-12">
-              {productCategories.map((category, index) => (
-                <div key={index} className="bg-card rounded-2xl p-8 shadow-soft hover:shadow-medium transition-all duration-300">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-accent-gradient p-3 rounded-lg mr-4">
-                      <div className="text-accent-foreground">
+          <div className="grid gap-12">
+            {productCategories.map((category, index) => (
+              <Card 
+                key={index} 
+                className={`group hover:shadow-${category.color} transition-all duration-500 animate-slide-up border-0 bg-gradient-to-br from-card to-card/50 overflow-hidden`}
+                style={{ animationDelay: `${index * 0.3}s` }}
+              >
+                <CardHeader className="pb-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`p-4 rounded-2xl bg-${category.color}/10 group-hover:bg-${category.color}/20 transition-colors duration-300`}>
+                      <div className={`text-${category.color}`}>
                         {category.icon}
                       </div>
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-card-foreground">
-                        {category.title}
-                      </h3>
-                      <p className="text-muted-foreground text-lg mt-2">
-                        {category.description}
-                      </p>
-                    </div>
+                    <Badge className={`bg-${category.color}/10 text-${category.color} hover:bg-${category.color}/20`}>
+                      {category.badge}
+                    </Badge>
                   </div>
-                  
+                  <CardTitle className="text-3xl font-bold text-card-foreground group-hover:text-primary transition-colors duration-300">
+                    {category.title}
+                  </CardTitle>
+                  <p className={`text-${category.color} font-semibold text-lg`}>{category.subtitle}</p>
+                  <p className="text-muted-foreground text-lg">{category.description}</p>
+                </CardHeader>
+                <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {category.items.map((item, itemIndex) => (
-                      <div 
+                      <Card 
                         key={itemIndex}
-                        className="flex items-center space-x-3 p-4 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors duration-200"
+                        className="p-4 hover:shadow-medium transition-all duration-300 hover:scale-105 border-0 bg-gradient-to-br from-secondary/30 to-secondary/10"
                       >
-                        <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                        <span className="text-card-foreground font-medium">{item}</span>
-                      </div>
+                        <div className="space-y-3">
+                          <div className={`flex items-center space-x-2`}>
+                            <div className={`w-3 h-3 bg-${category.color} rounded-full flex-shrink-0`}></div>
+                            <h4 className="font-bold text-card-foreground">{item.name}</h4>
+                          </div>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex justify-between">
+                              <span className="text-muted-foreground">Qualität:</span>
+                              <span className={`font-medium text-${category.color}`}>{item.quality}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-muted-foreground">Lieferung:</span>
+                              <span className="font-medium text-card-foreground">{item.delivery}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
                     ))}
                   </div>
-                </div>
-              ))}
-            </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <Star className="h-16 w-16 text-products mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-primary mb-6">
+              Was unsere Kunden sagen
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Vertrauen durch Qualität und Service
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="p-6 hover:shadow-products transition-all duration-300 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="space-y-4">
+                  <div className="flex space-x-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-products text-products" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground italic">"{testimonial.text}"</p>
+                  <div className="font-bold text-card-foreground">- {testimonial.name}</div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent-gradient">
+      <section className="py-20 bg-products-gradient">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent-foreground mb-8">
+          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               Bereit für eine Partnerschaft?
             </h2>
-            <p className="text-accent-foreground/90 text-lg mb-8">
+            <p className="text-white/90 text-lg mb-12 max-w-3xl mx-auto">
               Kontaktieren Sie uns für ein individuelles Angebot und erfahren Sie, 
               wie wir Ihre Versorgung optimieren können.
             </p>
             
-            <Button 
-              variant="secondary" 
-              className="bg-accent-foreground text-accent hover:bg-accent-foreground/90 shadow-glow"
-            >
-              Angebot anfordern
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="bg-white text-products hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Katalog anfordern
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-products transition-all duration-300"
+              >
+                Beratung vereinbaren
+              </Button>
+            </div>
           </div>
         </div>
       </section>
