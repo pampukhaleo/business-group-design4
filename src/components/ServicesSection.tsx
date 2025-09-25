@@ -16,7 +16,8 @@ const ServicesSection = () => {
       ],
       image: hrServices,
       imageAlt: "Professional HR and recruitment services",
-      accent: false
+      accent: false,
+      href: "/kaderpostenservice"
     },
     {
       title: "Produkte & Haushaltswaren",
@@ -81,6 +82,7 @@ const ServicesSection = () => {
               image={service.image}
               imageAlt={service.imageAlt}
               accent={service.accent}
+              href={service.href}
             />
           ))}
         </div>

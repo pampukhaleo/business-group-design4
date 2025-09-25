@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
@@ -8,9 +9,10 @@ interface ServiceCardProps {
   image: string;
   imageAlt: string;
   accent?: boolean;
+  href?: string;
 }
 
-const ServiceCard = ({ title, description, features, image, imageAlt, accent = false }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, features, image, imageAlt, accent = false, href }: ServiceCardProps) => {
   return (
     <div className={`group relative overflow-hidden rounded-2xl shadow-large hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
       accent ? 'bg-accent-gradient' : 'bg-card-gradient'
@@ -56,15 +58,29 @@ const ServiceCard = ({ title, description, features, image, imageAlt, accent = f
         </ul>
 
         {/* CTA Button */}
-        <Button 
-          variant={accent ? "secondary" : "default"}
-          className={`w-full group-hover:scale-105 transition-transform duration-300 ${
-            accent ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent hover:bg-accent-dark text-accent-foreground'
-          }`}
-        >
-          Mehr erfahren
-          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-        </Button>
+        {href ? (
+          <Link to={href} className="block">
+            <Button 
+              variant={accent ? "secondary" : "default"}
+              className={`w-full group-hover:scale-105 transition-transform duration-300 ${
+                accent ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent hover:bg-accent-dark text-accent-foreground'
+              }`}
+            >
+              Mehr erfahren
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </Link>
+        ) : (
+          <Button 
+            variant={accent ? "secondary" : "default"}
+            className={`w-full group-hover:scale-105 transition-transform duration-300 ${
+              accent ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent hover:bg-accent-dark text-accent-foreground'
+            }`}
+          >
+            Mehr erfahren
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </Button>
+        )}
       </div>
     </div>
   );
