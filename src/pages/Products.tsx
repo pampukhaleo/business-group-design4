@@ -152,10 +152,10 @@ const Products = () => {
                 <CardContent>
                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                      {category.items.map((item, itemIndex) => (
-                       <Card 
-                         key={itemIndex}
-                         className="p-4 bg-card border border-border shadow-soft hover:shadow-medium transition-all duration-300 hover:scale-105"
-                       >
+                        <Card 
+                          key={itemIndex}
+                          className="p-4 bg-white border-2 border-products/20 shadow-medium hover:shadow-large transition-all duration-300 hover:scale-105"
+                        >
                          <div className="space-y-3">
                            <div className={`flex items-center space-x-2`}>
                              <div className={`w-3 h-3 bg-${category.color} rounded-full flex-shrink-0`}></div>
@@ -226,19 +226,23 @@ const Products = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg"
-                className="bg-white text-products hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Katalog anfordern
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-products transition-all duration-300"
-              >
-                Beratung vereinbaren
-              </Button>
+              <Link to="/kontakt">
+                <Button 
+                  size="lg"
+                  className="bg-white text-products hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Katalog anfordern
+                </Button>
+              </Link>
+              <Link to="/kontakt">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-products transition-all duration-300"
+                >
+                  Beratung vereinbaren
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

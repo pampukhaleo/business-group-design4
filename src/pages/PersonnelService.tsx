@@ -170,8 +170,8 @@ const PersonnelService = () => {
                      {category.positions.map((position, posIndex) => (
                        <div 
                          key={posIndex}
-                         className="flex items-center space-x-2 p-3 rounded-lg bg-card border border-border shadow-soft hover:bg-secondary hover:shadow-medium transition-all duration-300"
-                       >
+                          className="flex items-center space-x-2 p-3 rounded-lg bg-white border-2 border-personnel/20 shadow-medium hover:bg-secondary hover:shadow-large transition-all duration-300"
+                        >
                          <div className={`w-2 h-2 bg-${category.color} rounded-full flex-shrink-0`}></div>
                          <span className="text-sm font-medium text-card-foreground">{position}</span>
                        </div>
@@ -235,19 +235,23 @@ const PersonnelService = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg"
-                className="bg-white text-personnel hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Als Arbeitgeber registrieren
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-personnel transition-all duration-300"
-              >
-                Stellenangebote ansehen
-              </Button>
+              <Link to="/kontakt">
+                <Button 
+                  size="lg"
+                  className="bg-white text-personnel hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Als Arbeitgeber registrieren
+                </Button>
+              </Link>
+              <Link to="/kontakt">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-personnel transition-all duration-300"
+                >
+                  Stellenangebote ansehen
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

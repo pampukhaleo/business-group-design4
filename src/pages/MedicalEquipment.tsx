@@ -182,10 +182,10 @@ const MedicalEquipment = () => {
                 <CardContent>
                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                      {category.equipment.map((item, itemIndex) => (
-                       <Card 
-                         key={itemIndex}
-                         className="p-4 bg-card border border-border shadow-soft hover:shadow-medium transition-all duration-300 hover:scale-105"
-                       >
+                        <Card 
+                          key={itemIndex}
+                          className="p-4 bg-white border-2 border-medical/20 shadow-medium hover:shadow-large transition-all duration-300 hover:scale-105"
+                        >
                          <div className="space-y-3">
                            <div className="flex items-center justify-between">
                              <div className="flex items-center space-x-2">
@@ -259,19 +259,23 @@ const MedicalEquipment = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg"
-                className="bg-white text-medical hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Beratungstermin vereinbaren
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-medical transition-all duration-300"
-              >
-                Geräte-Katalog anfordern
-              </Button>
+              <Link to="/kontakt">
+                <Button 
+                  size="lg"
+                  className="bg-white text-medical hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Beratungstermin vereinbaren
+                </Button>
+              </Link>
+              <Link to="/kontakt">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-medical transition-all duration-300"
+                >
+                  Geräte-Katalog anfordern
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
