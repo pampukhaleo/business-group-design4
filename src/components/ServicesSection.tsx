@@ -29,7 +29,8 @@ const ServicesSection = () => {
       ],
       image: productsGoods,
       imageAlt: "Quality products and household goods supply",
-      accent: true
+      accent: true,
+      href: "/produkte-haushaltswaren"
     },
     {
       title: "Medizinische Ausrüstung",
@@ -41,7 +42,8 @@ const ServicesSection = () => {
       ],
       image: medicalEquipment,
       imageAlt: "Advanced medical equipment and diagnostic systems",
-      accent: false
+      accent: false,
+      href: "/medizinische-ausruestung"
     },
     {
       title: "Baumaterialien",
@@ -53,7 +55,8 @@ const ServicesSection = () => {
       ],
       image: constructionMaterials,
       imageAlt: "Quality construction materials and building supplies",
-      accent: false
+      accent: false,
+      href: "/baumaterialien"
     }
   ];
 

@@ -64,6 +64,7 @@ export default {
         inter: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
+        'primary-gradient': 'var(--primary-gradient)',
         'hero-gradient': 'var(--hero-gradient)',
         'card-gradient': 'var(--card-gradient)', 
         'accent-gradient': 'var(--accent-gradient)',
@@ -72,6 +73,7 @@ export default {
         'soft': 'var(--shadow-soft)',
         'medium': 'var(--shadow-medium)',
         'large': 'var(--shadow-large)',
+        'glow': 'var(--shadow-glow)',
       },
       borderRadius: {
         lg: "var(--radius)",
