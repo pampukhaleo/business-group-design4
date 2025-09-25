@@ -215,7 +215,7 @@ const ConstructionMaterials = () => {
                      {category.materials.map((material, materialIndex) => (
                         <Card 
                           key={materialIndex}
-                          className="p-4 bg-white border-2 border-construction/20 shadow-medium hover:shadow-large transition-all duration-300 hover:scale-105"
+                          className="p-4 bg-white border-2 border-construction/40 shadow-medium hover:shadow-large transition-all duration-300 hover:scale-105"
                         >
                          <div className="space-y-3">
                            <div className="flex items-center justify-between">

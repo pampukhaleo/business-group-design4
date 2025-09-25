@@ -170,7 +170,7 @@ const PersonnelService = () => {
                      {category.positions.map((position, posIndex) => (
                        <div 
                          key={posIndex}
-                          className="flex items-center space-x-2 p-3 rounded-lg bg-white border-2 border-personnel/20 shadow-medium hover:bg-secondary hover:shadow-large transition-all duration-300"
+                          className="flex items-center space-x-2 p-3 rounded-lg bg-white border-2 border-personnel/40 shadow-medium hover:bg-secondary hover:shadow-large transition-all duration-300"
                         >
                          <div className={`w-2 h-2 bg-${category.color} rounded-full flex-shrink-0`}></div>
                          <span className="text-sm font-medium text-card-foreground">{position}</span>

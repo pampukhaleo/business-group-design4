@@ -154,7 +154,7 @@ const Products = () => {
                      {category.items.map((item, itemIndex) => (
                         <Card 
                           key={itemIndex}
-                          className="p-4 bg-white border-2 border-products/20 shadow-medium hover:shadow-large transition-all duration-300 hover:scale-105"
+                          className="p-4 bg-white border-2 border-products/40 shadow-medium hover:shadow-large transition-all duration-300 hover:scale-105"
                         >
                          <div className="space-y-3">
                            <div className={`flex items-center space-x-2`}>
