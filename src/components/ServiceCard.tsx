@@ -13,10 +13,12 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, description, features, image, imageAlt, accent = false, href }: ServiceCardProps) => {
-  return (
-    <div className={`group relative overflow-hidden rounded-2xl shadow-large hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
-      accent ? 'bg-accent-gradient' : 'bg-card-gradient'
-    }`}>
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const CardContent = (
+    <>
       {/* Image Section */}
       <div className="relative h-64 overflow-hidden">
         <img
@@ -58,30 +60,38 @@ const ServiceCard = ({ title, description, features, image, imageAlt, accent = f
         </ul>
 
         {/* CTA Button */}
-        {href ? (
-          <Link to={href} className="block">
-            <Button 
-              variant={accent ? "secondary" : "default"}
-              className={`w-full group-hover:scale-105 transition-transform duration-300 ${
-                accent ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent hover:bg-accent-dark text-accent-foreground'
-              }`}
-            >
-              Mehr erfahren
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-          </Link>
-        ) : (
-          <Button 
-            variant={accent ? "secondary" : "default"}
-            className={`w-full group-hover:scale-105 transition-transform duration-300 ${
-              accent ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent hover:bg-accent-dark text-accent-foreground'
-            }`}
-          >
-            Mehr erfahren
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </Button>
-        )}
+        <Button 
+          variant={accent ? "secondary" : "default"}
+          className={`w-full group-hover:scale-105 transition-transform duration-300 ${
+            accent ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent hover:bg-accent-dark text-accent-foreground'
+          }`}
+        >
+          Mehr erfahren
+          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </Button>
       </div>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link 
+        to={href} 
+        onClick={scrollToTop}
+        className={`group block relative overflow-hidden rounded-2xl shadow-large hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer ${
+          accent ? 'bg-accent-gradient' : 'bg-card-gradient'
+        }`}
+      >
+        {CardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={`group relative overflow-hidden rounded-2xl shadow-large hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
+      accent ? 'bg-accent-gradient' : 'bg-card-gradient'
+    }`}>
+      {CardContent}
     </div>
   );
 };

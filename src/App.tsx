@@ -8,8 +8,10 @@ import PersonnelService from "./pages/PersonnelService";
 import Products from "./pages/Products";
 import MedicalEquipment from "./pages/MedicalEquipment";
 import ConstructionMaterials from "./pages/ConstructionMaterials";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Header from "@/components/Header";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <ScrollToTop />
         <div className="min-h-screen bg-background">
           <Header />
           <main className="pt-20">
@@ -28,6 +31,7 @@ const App = () => (
               <Route path="/produkte-haushaltswaren" element={<Products />} />
               <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
               <Route path="/baumaterialien" element={<ConstructionMaterials />} />
+              <Route path="/kontakt" element={<Contact />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
