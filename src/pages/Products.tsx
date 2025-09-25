@@ -150,31 +150,31 @@ const Products = () => {
                   <p className="text-muted-foreground text-lg">{category.description}</p>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {category.items.map((item, itemIndex) => (
-                      <Card 
-                        key={itemIndex}
-                        className="p-4 hover:shadow-medium transition-all duration-300 hover:scale-105 border-0 bg-gradient-to-br from-secondary/30 to-secondary/10"
-                      >
-                        <div className="space-y-3">
-                          <div className={`flex items-center space-x-2`}>
-                            <div className={`w-3 h-3 bg-${category.color} rounded-full flex-shrink-0`}></div>
-                            <h4 className="font-bold text-card-foreground">{item.name}</h4>
-                          </div>
-                          <div className="space-y-2 text-sm">
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">Qualität:</span>
-                              <span className={`font-medium text-${category.color}`}>{item.quality}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">Lieferung:</span>
-                              <span className="font-medium text-card-foreground">{item.delivery}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
+                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                     {category.items.map((item, itemIndex) => (
+                       <Card 
+                         key={itemIndex}
+                         className="p-4 bg-card border border-border shadow-soft hover:shadow-medium transition-all duration-300 hover:scale-105"
+                       >
+                         <div className="space-y-3">
+                           <div className={`flex items-center space-x-2`}>
+                             <div className={`w-3 h-3 bg-${category.color} rounded-full flex-shrink-0`}></div>
+                             <h4 className="font-bold text-card-foreground">{item.name}</h4>
+                           </div>
+                           <div className="space-y-2 text-sm">
+                             <div className="flex justify-between">
+                               <span className="text-muted-foreground">Qualität:</span>
+                               <span className={`font-medium text-${category.color}`}>{item.quality}</span>
+                             </div>
+                             <div className="flex justify-between">
+                               <span className="text-muted-foreground">Lieferung:</span>
+                               <span className="font-medium text-card-foreground">{item.delivery}</span>
+                             </div>
+                           </div>
+                         </div>
+                       </Card>
+                     ))}
+                   </div>
                 </CardContent>
               </Card>
             ))}

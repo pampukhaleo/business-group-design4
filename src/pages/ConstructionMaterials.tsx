@@ -211,40 +211,40 @@ const ConstructionMaterials = () => {
                   <p className="text-muted-foreground text-lg">{category.description}</p>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {category.materials.map((material, materialIndex) => (
-                      <Card 
-                        key={materialIndex}
-                        className="p-4 hover:shadow-medium transition-all duration-300 hover:scale-105 border-0 bg-gradient-to-br from-secondary/30 to-secondary/10"
-                      >
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <div className={`w-3 h-3 bg-${category.color} rounded-full flex-shrink-0`}></div>
-                              <h4 className="font-bold text-card-foreground text-sm">{material.name}</h4>
-                            </div>
-                            <CheckCircle className={`h-4 w-4 text-${category.color}`} />
-                          </div>
-                          <div className="space-y-2 text-xs">
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">Herkunft:</span>
-                              <span className="font-medium text-card-foreground">{material.origin}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">Qualität:</span>
-                              <span className={`font-medium text-${category.color}`}>{material.quality}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">Verfügbarkeit:</span>
-                              <Badge className={`bg-${category.color}/10 text-${category.color} text-xs`}>
-                                {material.availability}
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
+                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                     {category.materials.map((material, materialIndex) => (
+                       <Card 
+                         key={materialIndex}
+                         className="p-4 bg-card border border-border shadow-soft hover:shadow-medium transition-all duration-300 hover:scale-105"
+                       >
+                         <div className="space-y-3">
+                           <div className="flex items-center justify-between">
+                             <div className="flex items-center space-x-2">
+                               <div className={`w-3 h-3 bg-${category.color} rounded-full flex-shrink-0`}></div>
+                               <h4 className="font-bold text-card-foreground text-sm">{material.name}</h4>
+                             </div>
+                             <CheckCircle className={`h-4 w-4 text-${category.color}`} />
+                           </div>
+                           <div className="space-y-2 text-xs">
+                             <div className="flex justify-between">
+                               <span className="text-muted-foreground">Herkunft:</span>
+                               <span className="font-medium text-card-foreground">{material.origin}</span>
+                             </div>
+                             <div className="flex justify-between">
+                               <span className="text-muted-foreground">Qualität:</span>
+                               <span className={`font-medium text-${category.color}`}>{material.quality}</span>
+                             </div>
+                             <div className="flex justify-between">
+                               <span className="text-muted-foreground">Verfügbarkeit:</span>
+                               <Badge className={`bg-${category.color}/10 text-${category.color} text-xs`}>
+                                 {material.availability}
+                               </Badge>
+                             </div>
+                           </div>
+                         </div>
+                       </Card>
+                     ))}
+                   </div>
                 </CardContent>
               </Card>
             ))}

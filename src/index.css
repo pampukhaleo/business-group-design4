@@ -39,27 +39,27 @@ All colors MUST be HSL.
     --input: 210 20% 92%;
     --ring: 174 62% 47%;
 
-    /* Service-specific colors */
-    --personnel: 220 70% 50%;
-    --personnel-light: 220 60% 85%;
-    --products: 35 85% 55%;
-    --products-light: 35 70% 85%;
-    --medical: 340 75% 50%;
-    --medical-light: 340 60% 85%;
-    --construction: 25 80% 50%;
-    --construction-light: 25 65% 85%;
+    /* Service-specific colors - More professional and muted */
+    --personnel: 220 35% 40%;
+    --personnel-light: 220 25% 75%;
+    --products: 35 40% 45%;
+    --products-light: 35 30% 75%;
+    --medical: 340 35% 40%;
+    --medical-light: 340 25% 75%;
+    --construction: 25 40% 45%;
+    --construction-light: 25 30% 75%;
 
-    /* Modern gradients */
+    /* Professional gradients - More subdued */
     --primary-gradient: linear-gradient(135deg, hsl(210, 11%, 15%) 0%, hsl(210, 15%, 25%) 100%);
-    --hero-gradient: linear-gradient(135deg, hsl(210, 11%, 15%) 0%, hsl(210, 15%, 25%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(210, 11%, 18%) 0%, hsl(210, 15%, 28%) 100%);
     --card-gradient: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 17%, 98%) 100%);
     --accent-gradient: linear-gradient(135deg, hsl(174, 62%, 47%) 0%, hsl(174, 62%, 35%) 100%);
     
-    /* Service gradients */
-    --personnel-gradient: linear-gradient(135deg, hsl(220, 70%, 50%) 0%, hsl(220, 70%, 40%) 100%);
-    --products-gradient: linear-gradient(135deg, hsl(35, 85%, 55%) 0%, hsl(35, 85%, 45%) 100%);
-    --medical-gradient: linear-gradient(135deg, hsl(340, 75%, 50%) 0%, hsl(340, 75%, 40%) 100%);
-    --construction-gradient: linear-gradient(135deg, hsl(25, 80%, 50%) 0%, hsl(25, 80%, 40%) 100%);
+    /* Service gradients - Professional tones */
+    --personnel-gradient: linear-gradient(135deg, hsl(210, 15%, 20%) 0%, hsl(220, 20%, 30%) 100%);
+    --products-gradient: linear-gradient(135deg, hsl(210, 15%, 20%) 0%, hsl(35, 20%, 30%) 100%);
+    --medical-gradient: linear-gradient(135deg, hsl(210, 15%, 20%) 0%, hsl(340, 20%, 30%) 100%);
+    --construction-gradient: linear-gradient(135deg, hsl(210, 15%, 20%) 0%, hsl(25, 20%, 30%) 100%);
     
     /* Glass morphism */
     --glass-bg: hsla(0, 0%, 100%, 0.1);

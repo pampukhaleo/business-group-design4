@@ -166,17 +166,17 @@ const PersonnelService = () => {
                   <p className="text-muted-foreground">{category.description}</p>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-2 gap-3">
-                    {category.positions.map((position, posIndex) => (
-                      <div 
-                        key={posIndex}
-                        className="flex items-center space-x-2 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors duration-200"
-                      >
-                        <div className={`w-2 h-2 bg-${category.color} rounded-full flex-shrink-0`}></div>
-                        <span className="text-sm font-medium text-card-foreground">{position}</span>
-                      </div>
-                    ))}
-                  </div>
+                   <div className="grid grid-cols-2 gap-3">
+                     {category.positions.map((position, posIndex) => (
+                       <div 
+                         key={posIndex}
+                         className="flex items-center space-x-2 p-3 rounded-lg bg-card border border-border shadow-soft hover:bg-secondary hover:shadow-medium transition-all duration-300"
+                       >
+                         <div className={`w-2 h-2 bg-${category.color} rounded-full flex-shrink-0`}></div>
+                         <span className="text-sm font-medium text-card-foreground">{position}</span>
+                       </div>
+                     ))}
+                   </div>
                 </CardContent>
               </Card>
             ))}
