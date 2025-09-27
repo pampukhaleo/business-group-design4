@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
+import QuickContactButtons from "./QuickContactButtons";
 
 const ContactSection = () => {
   return (
@@ -11,7 +12,7 @@ const ContactSection = () => {
           </h2>
           
           <p className="text-xl mb-12 opacity-90 leading-relaxed">
-            Kontaktieren Sie uns noch heute und erfahren Sie, wie wir Ihr Unternehmen 
+            Kontaktieren Sie Global Bridge Agency ALM UG noch heute und erfahren Sie, wie wir Ihr Unternehmen 
             mit unseren professionellen Dienstleistungen unterstützen können.
           </p>
 
@@ -22,7 +23,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">E-Mail</h3>
-                <p className="opacity-80">info@businesshub.de</p>
+                <p className="opacity-80">info@globalbridgeagency.de</p>
               </div>
             </div>
 
@@ -42,17 +43,24 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Standort</h3>
-                <p className="opacity-80">Hamburg, Deutschland</p>
+                <p className="opacity-80">Deutschland</p>
               </div>
             </div>
           </div>
 
-          <Button 
-            size="lg" 
-            className="bg-accent hover:bg-accent-dark text-accent-foreground shadow-large px-8 py-4 text-lg"
-          >
-            Kostenlose Beratung anfragen
-          </Button>
+          <div className="flex flex-col items-center gap-6">
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent-dark text-accent-foreground shadow-large px-8 py-4 text-lg"
+            >
+              Kostenlose Beratung anfragen
+            </Button>
+            
+            <div className="text-center">
+              <p className="text-sm opacity-70 mb-4">Oder kontaktieren Sie uns direkt:</p>
+              <QuickContactButtons variant="footer" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

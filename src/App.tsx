@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
+import QuickContactButtons from "@/components/QuickContactButtons";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ScrollToTop />
+        <QuickContactButtons variant="fixed" />
         <div className="min-h-screen bg-background">
           <Header />
           <main className="pt-20">

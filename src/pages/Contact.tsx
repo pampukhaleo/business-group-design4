@@ -88,8 +88,8 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "E-Mail",
-      content: "info@businesshub.de",
-      link: "mailto:info@businesshub.de"
+      content: "info@globalbridgeagency.de",
+      link: "mailto:info@globalbridgeagency.de"
     },
     {
       icon: <Phone className="h-6 w-6" />,
@@ -278,7 +278,7 @@ const Contact = () => {
                 
                 <div className="mt-8 p-6 bg-secondary/30 rounded-2xl">
                   <h3 className="text-lg font-semibold text-primary mb-4">
-                    Warum BusinessHub wählen?
+                    Warum Global Bridge Agency ALM UG wählen?
                   </h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-start space-x-3">
@@ -328,7 +328,7 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="BusinessHub Standort"
+                title="Global Bridge Agency ALM UG Standort"
               ></iframe>
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-background/10"></div>
             </div>

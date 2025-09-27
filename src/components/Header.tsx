@@ -35,7 +35,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" onClick={scrollToTop} className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">BusinessHub</h1>
+            <h1 className="text-2xl font-bold text-primary">Global Bridge Agency ALM UG</h1>
           </Link>
 
           {/* Desktop Navigation */}

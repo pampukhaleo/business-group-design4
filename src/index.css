@@ -17,20 +17,20 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 210 11% 15%;
 
-    --primary: 210 11% 15%;
+    --primary: 208 41% 18%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 210 17% 98%;
-    --secondary-foreground: 210 11% 15%;
+    --secondary-foreground: 208 41% 18%;
 
     --muted: 210 17% 96%;
     --muted-foreground: 210 6% 46%;
 
-    --accent: 174 62% 47%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 35 42% 65%;
+    --accent-foreground: 208 41% 18%;
 
-    --accent-light: 174 45% 85%;
-    --accent-dark: 174 62% 35%;
+    --accent-light: 35 35% 75%;
+    --accent-dark: 35 50% 55%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
@@ -49,11 +49,11 @@ All colors MUST be HSL.
     --construction: 25 40% 45%;
     --construction-light: 25 30% 75%;
 
-    /* Professional gradients - More subdued */
-    --primary-gradient: linear-gradient(135deg, hsl(210, 11%, 15%) 0%, hsl(210, 15%, 25%) 100%);
-    --hero-gradient: linear-gradient(135deg, hsl(210, 11%, 18%) 0%, hsl(210, 15%, 28%) 100%);
+    /* Professional gradients - Gold and dark blue theme */
+    --primary-gradient: linear-gradient(135deg, hsl(208, 41%, 18%) 0%, hsl(208, 41%, 25%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(208, 41%, 18%) 0%, hsl(208, 41%, 25%) 100%);
     --card-gradient: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 17%, 98%) 100%);
-    --accent-gradient: linear-gradient(135deg, hsl(174, 62%, 47%) 0%, hsl(174, 62%, 35%) 100%);
+    --accent-gradient: linear-gradient(135deg, hsl(35, 42%, 65%) 0%, hsl(35, 50%, 55%) 100%);
     
     /* Service gradients - Professional tones */
     --personnel-gradient: linear-gradient(135deg, hsl(210, 15%, 20%) 0%, hsl(220, 20%, 30%) 100%);
