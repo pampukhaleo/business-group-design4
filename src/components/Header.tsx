@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,8 +35,15 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" onClick={scrollToTop} className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">Global Bridge Agency ALM UG</h1>
+          <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
+            <img 
+              src={logo} 
+              alt="Global Bridge Agency ALM UG Logo" 
+              className="h-8 w-auto"
+            />
+            <h1 className="text-xl font-bold text-primary hidden sm:block">
+              <span className="text-accent">Global Bridge</span> Agency ALM UG
+            </h1>
           </Link>
 
           {/* Desktop Navigation */}
