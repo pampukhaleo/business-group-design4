@@ -1,8 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-business.jpg";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const navigateToContact = () => {
+    navigate('/kontakt');
+  };
+
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -29,11 +43,21 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" variant="default" className="bg-accent hover:bg-accent-dark text-accent-foreground shadow-medium">
+            <Button 
+              size="lg" 
+              variant="default" 
+              onClick={scrollToServices}
+              className="bg-accent hover:bg-accent-dark text-accent-foreground shadow-medium"
+            >
               Unsere Dienstleistungen
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary shadow-medium">
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              onClick={navigateToContact}
+              className="bg-white/10 text-white border border-white/20 hover:bg-white/20 shadow-medium"
+            >
               Kontakt aufnehmen
             </Button>
           </div>

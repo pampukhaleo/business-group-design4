@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import QuickContactButtons from "./QuickContactButtons";
 
 const ContactSection = () => {
+  const navigate = useNavigate();
+
+  const navigateToContact = () => {
+    navigate('/kontakt');
+  };
+
   return (
     <section id="contact" className="py-20 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4">
@@ -51,6 +58,7 @@ const ContactSection = () => {
           <div className="flex flex-col items-center gap-6">
             <Button 
               size="lg" 
+              onClick={navigateToContact}
               className="bg-accent hover:bg-accent-dark text-accent-foreground shadow-large px-8 py-4 text-lg"
             >
               Kostenlose Beratung anfragen
