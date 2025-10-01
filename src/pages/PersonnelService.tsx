@@ -3,8 +3,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, Users, Heart, Code, GraduationCap, Building2, Star, TrendingUp, Award, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const PersonnelService = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Personalvermittlung",
+    "description": "Professionelle Personalvermittlung für Ärzte, Pflegekräfte, IT-Spezialisten und Studenten in Deutschland",
+    "provider": {
+      "@type": "Organization",
+      "name": "Global bridge agency AML (UG)",
+      "url": "https://globalbridge-agency.de"
+    },
+    "serviceType": "Personalvermittlung",
+    "areaServed": "DE"
+  };
   const stats = [
     { label: "Erfolgreiche Vermittlungen", value: "2,500+", icon: <Award className="h-5 w-5" /> },
     { label: "Partner Kliniken", value: "150+", icon: <Building2 className="h-5 w-5" /> },
@@ -82,15 +97,24 @@ const PersonnelService = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Back Button */}
-      <div className="container mx-auto px-4 py-8">
-        <Link to="/">
-          <Button variant="outline" className="mb-8 hover:shadow-personnel transition-all duration-300">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Zurück zur Hauptseite
-          </Button>
-        </Link>
+    <>
+      <SEO
+        title="Personalvermittlung - Ärzte, Pflegekräfte & IT-Spezialisten | Global bridge agency AML (UG)"
+        description="Professionelle Personalvermittlung für medizinische Fachkräfte, Pflegepersonal und IT-Spezialisten in Deutschland. 2.500+ erfolgreiche Vermittlungen, 98% Zufriedenheitsrate."
+        keywords="Personalvermittlung, Ärzte Deutschland, Pflegekräfte vermittlung, IT-Spezialisten, Hamburg"
+        canonicalUrl="https://globalbridge-agency.de/kaderpostenservice"
+        jsonLd={jsonLd}
+      />
+      <div className="min-h-screen bg-background">
+        {/* Back Button */}
+        <div className="container mx-auto px-4 py-8">
+          <Link to="/">
+            <Button variant="outline" className="mb-8 hover:shadow-personnel transition-all duration-300">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Zurück zur Hauptseite
+            </Button>
+          </Link>
+          <Breadcrumbs items={[{ label: "Personalvermittlung" }]} />
       </div>
 
       {/* Hero Section */}
@@ -257,6 +281,7 @@ const PersonnelService = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

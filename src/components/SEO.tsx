@@ -1,0 +1,57 @@
+import { Helmet } from "react-helmet-async";
+
+interface SEOProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  jsonLd?: object;
+}
+
+const SEO = ({
+  title = "Global bridge agency AML (UG) - Professionelle Geschäftslösungen",
+  description = "Global bridge agency AML (UG) - Professionelle Dienstleistungen in Deutschland: Personalvermittlung, Handel, Medizintechnik und Baumaterialien. Ihr zuverlässiger Partner für geschäftlichen Erfolg.",
+  keywords = "Global bridge agency, AML, Personalvermittlung Deutschland, Medizintechnik, Baumaterialien, Handel, Geschäftslösungen, Hamburg",
+  ogImage = "https://globalbridge-agency.de/og-image.jpg",
+  ogType = "website",
+  canonicalUrl = "https://globalbridge-agency.de/",
+  jsonLd,
+}: SEOProps) => {
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      
+      {/* Open Graph */}
+      <meta property="og:type" content={ogType} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:locale" content="de_DE" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
+      
+      {/* Canonical URL */}
+      <link rel="canonical" href={canonicalUrl} />
+      
+      {/* JSON-LD Structured Data */}
+      {jsonLd && (
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      )}
+    </Helmet>
+  );
+};
+
+export default SEO;

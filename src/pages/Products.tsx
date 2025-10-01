@@ -3,8 +3,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Package, Utensils, Home, ShoppingCart, Truck, Shield, Star, Leaf, Clock, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Products = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Produkte & Haushaltswaren Handel",
+    "description": "Großhandel für Premium Lebensmittel und Haushaltswaren. 24h Lieferung, Qualitätsgarantie, Bio-zertifizierte Produkte für Gastronomie und Großkunden.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Global bridge agency AML (UG)",
+      "url": "https://globalbridge-agency.de"
+    },
+    "serviceType": "Großhandel",
+    "areaServed": "DE"
+  };
   const features = [
     { icon: <Truck className="h-6 w-6" />, title: "24h Lieferung", description: "Schnelle Lieferung deutschlandweit" },
     { icon: <Shield className="h-6 w-6" />, title: "Qualitätsgarantie", description: "100% geprüfte Produkte" },
@@ -66,15 +81,24 @@ const Products = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Back Button */}
-      <div className="container mx-auto px-4 py-8">
-        <Link to="/">
-          <Button variant="outline" className="mb-8 hover:shadow-products transition-all duration-300">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Zurück zur Hauptseite
-          </Button>
-        </Link>
+    <>
+      <SEO
+        title="Produkte & Haushaltswaren - Premium Lebensmittel & Großhandel | Global bridge agency AML (UG)"
+        description="Großhandel für Premium Lebensmittel und Haushaltswaren. 24h Lieferung deutschlandweit, 100% geprüfte Qualität, Bio-zertifizierte Produkte für Gastronomie und Großkunden."
+        keywords="Großhandel Lebensmittel, Haushaltswaren, Premium Produkte, Bio-zertifiziert, Gastronomie, Hamburg"
+        canonicalUrl="https://globalbridge-agency.de/produkte-haushaltswaren"
+        jsonLd={jsonLd}
+      />
+      <div className="min-h-screen bg-background">
+        {/* Back Button */}
+        <div className="container mx-auto px-4 py-8">
+          <Link to="/">
+            <Button variant="outline" className="mb-8 hover:shadow-products transition-all duration-300">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Zurück zur Hauptseite
+            </Button>
+          </Link>
+          <Breadcrumbs items={[{ label: "Produkte & Haushaltswaren" }]} />
       </div>
 
       {/* Hero Section */}
@@ -248,6 +272,7 @@ const Products = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

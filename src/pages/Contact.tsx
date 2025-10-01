@@ -7,6 +7,8 @@ import { ArrowLeft, Mail, Phone, MapPin, Send, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, { message: "Name ist erforderlich" }).max(100, { message: "Name muss weniger als 100 Zeichen haben" }),
@@ -17,6 +19,25 @@ const contactSchema = z.object({
 });
 
 const Contact = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Kontakt - Global bridge agency AML (UG)",
+    "description": "Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Telefon: +49 157 525 95235, Email: info@globalbridgeagency.de",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Global bridge agency AML (UG)",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeidlerstraße 12",
+        "addressLocality": "Hamburg",
+        "postalCode": "21107",
+        "addressCountry": "DE"
+      },
+      "telephone": "+49-157-525-95235",
+      "email": "info@globalbridgeagency.de"
+    }
+  };
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -112,15 +133,24 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Back Button */}
-      <div className="container mx-auto px-4 py-8">
-        <Link to="/">
-          <Button variant="outline" className="mb-8 hover:shadow-soft transition-all duration-300">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Zurück zur Hauptseite
-          </Button>
-        </Link>
+    <>
+      <SEO
+        title="Kontakt - Global bridge agency AML (UG) Hamburg"
+        description="Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Zeidlerstraße 12, 21107 Hamburg. Telefon: +49 157 525 95235, Email: info@globalbridgeagency.de"
+        keywords="Kontakt, Global bridge agency, Hamburg, Zeidlerstraße, Beratung"
+        canonicalUrl="https://globalbridge-agency.de/kontakt"
+        jsonLd={jsonLd}
+      />
+      <div className="min-h-screen bg-background">
+        {/* Back Button */}
+        <div className="container mx-auto px-4 py-8">
+          <Link to="/">
+            <Button variant="outline" className="mb-8 hover:shadow-soft transition-all duration-300">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Zurück zur Hauptseite
+            </Button>
+          </Link>
+          <Breadcrumbs items={[{ label: "Kontakt" }]} />
       </div>
 
       {/* Hero Section */}
@@ -336,6 +366,7 @@ const Contact = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

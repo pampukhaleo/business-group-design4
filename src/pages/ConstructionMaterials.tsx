@@ -4,8 +4,23 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, Hammer, Building, Truck, Shield, Clock, Award, CheckCircle, Zap, Leaf, Target } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const ConstructionMaterials = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Baumaterialien",
+    "description": "Premium Baumaterialien für Wohnungsbau, Gewerbebau und Infrastruktur. Naturstein, Marmor, Sanitäranlagen und mehr. 98% termingerechte Lieferung.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Global bridge agency AML (UG)",
+      "url": "https://globalbridge-agency.de"
+    },
+    "serviceType": "Baustoffhandel",
+    "areaServed": "DE"
+  };
   const processes = [
     { 
       step: 1, 
@@ -122,15 +137,24 @@ const ConstructionMaterials = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Back Button */}
-      <div className="container mx-auto px-4 py-8">
-        <Link to="/">
-          <Button variant="outline" className="mb-8 hover:shadow-construction transition-all duration-300">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Zurück zur Hauptseite
-          </Button>
-        </Link>
+    <>
+      <SEO
+        title="Baumaterialien - Naturstein, Marmor & Premium Baustoffe | Global bridge agency AML (UG)"
+        description="Premium Baumaterialien für Wohnungsbau, Gewerbebau und Infrastruktur. Naturstein, Marmor, Sanitäranlagen, Dämmstoffe. 98% termingerechte Lieferung in Deutschland."
+        keywords="Baumaterialien, Naturstein, Marmor, Baustoffe, Sanitäranlagen, Wohnungsbau, Hamburg"
+        canonicalUrl="https://globalbridge-agency.de/baumaterialien"
+        jsonLd={jsonLd}
+      />
+      <div className="min-h-screen bg-background">
+        {/* Back Button */}
+        <div className="container mx-auto px-4 py-8">
+          <Link to="/">
+            <Button variant="outline" className="mb-8 hover:shadow-construction transition-all duration-300">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Zurück zur Hauptseite
+            </Button>
+          </Link>
+          <Breadcrumbs items={[{ label: "Baumaterialien" }]} />
       </div>
 
       {/* Hero Section */}
@@ -334,6 +358,7 @@ const ConstructionMaterials = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

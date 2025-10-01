@@ -3,8 +3,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Heart, Activity, Microscope, Stethoscope, Zap, Settings, Users, Shield, Award, Clock, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const MedicalEquipment = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Medizinische Ausrüstung",
+    "description": "Modernste medizinische Geräte und Ausrüstung für Kardiologie, Intensivmedizin und Labordiagnostik. CE & FDA zertifiziert, 24/7 Support.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Global bridge agency AML (UG)",
+      "url": "https://globalbridge-agency.de"
+    },
+    "serviceType": "Medizintechnik",
+    "areaServed": "DE"
+  };
   const services = [
     { icon: <Settings className="h-6 w-6" />, title: "Installation", description: "Professionelle Geräte-Installation" },
     { icon: <Users className="h-6 w-6" />, title: "Schulung", description: "Umfassende Mitarbeiter-Schulungen" },
@@ -91,15 +106,24 @@ const MedicalEquipment = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Back Button */}
-      <div className="container mx-auto px-4 py-8">
-        <Link to="/">
-          <Button variant="outline" className="mb-8 hover:shadow-medical transition-all duration-300">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Zurück zur Hauptseite
-          </Button>
-        </Link>
+    <>
+      <SEO
+        title="Medizinische Ausrüstung - Hightech Geräte für Kliniken | Global bridge agency AML (UG)"
+        description="Modernste medizinische Geräte für Kardiologie, Intensivmedizin und Labordiagnostik. CE & FDA zertifiziert, professionelle Installation, 24/7 Support in ganz Deutschland."
+        keywords="Medizintechnik, medizinische Geräte, Kardiologie Equipment, Intensivmedizin, CE zertifiziert, Hamburg"
+        canonicalUrl="https://globalbridge-agency.de/medizinische-ausruestung"
+        jsonLd={jsonLd}
+      />
+      <div className="min-h-screen bg-background">
+        {/* Back Button */}
+        <div className="container mx-auto px-4 py-8">
+          <Link to="/">
+            <Button variant="outline" className="mb-8 hover:shadow-medical transition-all duration-300">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Zurück zur Hauptseite
+            </Button>
+          </Link>
+          <Breadcrumbs items={[{ label: "Medizinische Ausrüstung" }]} />
       </div>
 
       {/* Hero Section */}
@@ -281,6 +305,7 @@ const MedicalEquipment = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
