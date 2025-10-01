@@ -19,7 +19,7 @@ const ContactSection = () => {
           </h2>
           
           <p className="text-xl mb-12 opacity-90 leading-relaxed">
-            Kontaktieren Sie Global Bridge Agency ALM UG noch heute und erfahren Sie, wie wir Ihr Unternehmen 
+            Kontaktieren Sie Global bridge agency AML (UG) noch heute und erfahren Sie, wie wir Ihr Unternehmen 
             mit unseren professionellen Dienstleistungen unterstützen können.
           </p>
 
@@ -40,7 +40,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Telefon</h3>
-                <p className="opacity-80">+49 (0) 40 123 456 789</p>
+                <p className="opacity-80">+49 157 525 95235</p>
               </div>
             </div>
 

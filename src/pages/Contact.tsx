@@ -94,14 +94,14 @@ const Contact = () => {
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Telefon",
-      content: "+49 (0) 30 123 456 78",
-      link: "tel:+493012345678"
+      content: "+49 157 525 95235",
+      link: "tel:+4915752595235"
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Adresse",
-      content: "Musterstraße 123, 10115 Berlin, Deutschland",
-      link: "https://maps.google.com/?q=Musterstraße+123,+10115+Berlin,+Deutschland"
+      content: "Zeidlerstraße 12, 21107 Hamburg, Germany",
+      link: "https://maps.google.com/?q=Zeidlerstraße+12,+21107+Hamburg,+Germany"
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -278,7 +278,7 @@ const Contact = () => {
                 
                 <div className="mt-8 p-6 bg-secondary/30 rounded-2xl">
                   <h3 className="text-lg font-semibold text-primary mb-4">
-                    Warum Global Bridge Agency ALM UG wählen?
+                    Warum Global bridge agency AML (UG) wählen?
                   </h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-start space-x-3">
@@ -313,7 +313,7 @@ const Contact = () => {
               Besuchen Sie uns
             </h2>
             <p className="text-lg text-muted-foreground">
-              Unser Büro befindet sich im Herzen von Berlin. Termine nach Vereinbarung.
+              Unser Büro befindet sich in Hamburg. Termine nach Vereinbarung.
             </p>
           </div>
           
@@ -321,14 +321,14 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-large">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.4092334077324!2d13.388860377157088!3d52.53127297207374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c5f8b0c5f1%3A0x2c7b9f4b4a4b4b4b!2sBerlin%2C%20Germany!5e0!3m2!1sen!2sus!4v1642598765432!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2372.0817476461374!2d9.99363707651535!3d53.45765577231644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b18f9b89e6b62f%3A0x9e9c8f4e3e4e4e4e!2sZeidlerstra%C3%9Fe%2012%2C%2021107%20Hamburg%2C%20Germany!5e0!3m2!1sen!2sus!4v1642598765432!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Global Bridge Agency ALM UG Standort"
+                title="Global bridge agency AML (UG) Standort"
               ></iframe>
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-background/10"></div>
             </div>

@@ -46,11 +46,11 @@ const Header = () => {
           <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
             <img 
               src={logo} 
-              alt="Global Bridge Agency ALM UG Logo" 
+              alt="Global bridge agency AML (UG) Logo" 
               className="h-8 w-auto"
             />
             <h1 className="text-xl font-bold text-primary hidden sm:block">
-              <span className="text-accent">Global Bridge</span> Agency ALM UG
+              <span className="text-accent">Global bridge</span> agency AML (UG)
             </h1>
           </Link>
 
