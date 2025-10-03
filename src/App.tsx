@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import PersonnelService from "./pages/PersonnelService";
 import Products from "./pages/Products";
@@ -18,19 +18,20 @@ import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import QuickContactButtons from "@/components/QuickContactButtons";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import CRMLayout from "@/components/crm/CRMLayout";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <Toaster />
-    <Sonner />
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <ScrollToTop />
-      <QuickContactButtons variant="fixed" />
+const AppContent = () => {
+  const location = useLocation();
+  const isCRMRoute = location.pathname.startsWith('/crm');
+
+  return (
+    <>
+      {!isCRMRoute && <QuickContactButtons variant="fixed" />}
       <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-20">
+        {!isCRMRoute && <Header />}
+        <main className={!isCRMRoute ? "pt-20" : ""}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/kaderpostenservice" element={<PersonnelService />} />
@@ -39,15 +40,28 @@ const App = () => (
             <Route path="/baumaterialien" element={<ConstructionMaterials />} />
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/auth" element={<Auth />} />
-            <Route path="/crm" element={<ProtectedRoute requireAdmin><CRMDashboard /></ProtectedRoute>} />
-            <Route path="/crm/lead/:id" element={<ProtectedRoute requireAdmin><LeadDetail /></ProtectedRoute>} />
-            <Route path="/crm/statistics" element={<ProtectedRoute requireAdmin><Statistics /></ProtectedRoute>} />
-            <Route path="/crm/new" element={<ProtectedRoute requireAdmin><NewLead /></ProtectedRoute>} />
+            <Route path="/crm" element={<ProtectedRoute requireAdmin><CRMLayout /></ProtectedRoute>}>
+              <Route index element={<CRMDashboard />} />
+              <Route path="statistics" element={<Statistics />} />
+              <Route path="lead/:id" element={<LeadDetail />} />
+              <Route path="new" element={<NewLead />} />
+            </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </div>
+    </>
+  );
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
+      <AppContent />
     </BrowserRouter>
   </QueryClientProvider>
 );

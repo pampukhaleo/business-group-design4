@@ -62,6 +62,36 @@ const CRMDashboard = () => {
     setFilteredLeads(filtered);
   }, [selectedStatus, searchQuery, leads]);
 
+  const handleStatusChange = async (id: string, newStatus: LeadStatus) => {
+    try {
+      const updateData: any = { status: newStatus };
+      
+      if (newStatus === 'completed') {
+        updateData.completed_at = new Date().toISOString();
+      }
+
+      const { error } = await supabase
+        .from('leads')
+        .update(updateData)
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: 'Успешно',
+        description: 'Статус заявки обновлен'
+      });
+
+      fetchLeads();
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: 'Не удалось обновить статус',
+        variant: 'destructive'
+      });
+    }
+  };
+
   const handleDelete = async (id: string) => {
     if (!confirm('Вы уверены, что хотите удалить эту заявку?')) return;
 
@@ -118,7 +148,11 @@ const CRMDashboard = () => {
         />
       </div>
 
-      <LeadsTable leads={filteredLeads} onDelete={handleDelete} />
+      <LeadsTable 
+        leads={filteredLeads} 
+        onDelete={handleDelete}
+        onStatusChange={handleStatusChange}
+      />
     </div>
   );
 };
