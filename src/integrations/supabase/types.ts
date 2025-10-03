@@ -23,6 +23,7 @@ export type Database = {
           message: string
           name: string
           phone: string | null
+          price: number | null
           status: Database["public"]["Enums"]["lead_status"]
           subject: string
           updated_at: string
@@ -35,6 +36,7 @@ export type Database = {
           message: string
           name: string
           phone?: string | null
+          price?: number | null
           status?: Database["public"]["Enums"]["lead_status"]
           subject: string
           updated_at?: string
@@ -47,6 +49,7 @@ export type Database = {
           message?: string
           name?: string
           phone?: string | null
+          price?: number | null
           status?: Database["public"]["Enums"]["lead_status"]
           subject?: string
           updated_at?: string

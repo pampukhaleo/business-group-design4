@@ -59,7 +59,8 @@ const LeadDetail = () => {
           phone: lead.phone,
           subject: lead.subject,
           message: lead.message,
-          status: lead.status
+          status: lead.status,
+          price: lead.price
         })
         .eq('id', id);
 
@@ -182,6 +183,19 @@ const LeadDetail = () => {
                   onChange={(e) => setLead({ ...lead, phone: e.target.value })}
                 />
               </div>
+            </div>
+
+            <div>
+              <Label htmlFor="price">Цена (₽)</Label>
+              <Input
+                id="price"
+                type="number"
+                step="0.01"
+                min="0"
+                placeholder="0.00"
+                value={lead.price || ''}
+                onChange={(e) => setLead({ ...lead, price: e.target.value ? parseFloat(e.target.value) : null })}
+              />
             </div>
 
             <div>
