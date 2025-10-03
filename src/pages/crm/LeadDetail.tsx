@@ -186,7 +186,7 @@ const LeadDetail = () => {
             </div>
 
             <div>
-              <Label htmlFor="price">Цена (₽)</Label>
+              <Label htmlFor="price">Цена (€)</Label>
               <Input
                 id="price"
                 type="number"

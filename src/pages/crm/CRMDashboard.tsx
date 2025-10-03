@@ -92,6 +92,30 @@ const CRMDashboard = () => {
     }
   };
 
+  const handlePriceChange = async (id: string, newPrice: number | null) => {
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .update({ price: newPrice })
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: 'Успешно',
+        description: 'Цена обновлена'
+      });
+
+      fetchLeads();
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: 'Не удалось обновить цену',
+        variant: 'destructive'
+      });
+    }
+  };
+
   const handleDelete = async (id: string) => {
     if (!confirm('Вы уверены, что хотите удалить эту заявку?')) return;
 
@@ -127,13 +151,13 @@ const CRMDashboard = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
+    <div className="container mx-auto px-4 py-4 md:py-8">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 md:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-primary mb-2">Управление заявками</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">Управление заявками</h1>
           <p className="text-muted-foreground">Всего заявок: {leads.length}</p>
         </div>
-        <Button onClick={() => navigate('/crm/new')}>
+        <Button onClick={() => navigate('/crm/new')} className="w-full md:w-auto">
           <Plus className="h-4 w-4 mr-2" />
           Создать заявку
         </Button>
@@ -152,6 +176,7 @@ const CRMDashboard = () => {
         leads={filteredLeads} 
         onDelete={handleDelete}
         onStatusChange={handleStatusChange}
+        onPriceChange={handlePriceChange}
       />
     </div>
   );
