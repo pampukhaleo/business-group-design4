@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, { message: "Name ist erforderlich" }).max(100, { message: "Name muss weniger als 100 Zeichen haben" }),
@@ -67,9 +68,19 @@ const Contact = () => {
       // Validate form data
       const validatedData = contactSchema.parse(formData);
       
-      // Here you would typically send the data to your backend
-      // For now, we'll just show a success message
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+      // Save to database
+      const { error: dbError } = await supabase
+        .from('leads')
+        .insert([{
+          name: validatedData.name,
+          email: validatedData.email,
+          phone: validatedData.phone,
+          subject: validatedData.subject,
+          message: validatedData.message,
+          status: 'new' as const
+        }]);
+
+      if (dbError) throw dbError;
       
       toast({
         title: "Nachricht gesendet!",

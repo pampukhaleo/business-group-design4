@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import { useAuth } from "@/hooks/useAuth";
+import { useUserRole } from "@/hooks/useUserRole";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+  const { canManageLeads } = useUserRole();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -75,6 +79,27 @@ const Header = () => {
             >
               Kontakt
             </Link>
+            {user && canManageLeads && (
+              <Link 
+                to="/crm" 
+                onClick={scrollToTop}
+                className="text-accent hover:text-accent-dark transition-colors font-medium"
+              >
+                CRM
+              </Link>
+            )}
+            {user && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={async () => {
+                  await signOut();
+                  navigate('/');
+                }}
+              >
+                <LogOut className="h-4 w-4" />
+              </Button>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -114,6 +139,30 @@ const Header = () => {
               >
                 Kontakt
               </Link>
+              {user && canManageLeads && (
+                <Link
+                  to="/crm"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    scrollToTop();
+                  }}
+                  className="text-accent hover:text-accent-dark transition-colors font-medium"
+                >
+                  CRM
+                </Link>
+              )}
+              {user && (
+                <button
+                  onClick={async () => {
+                    await signOut();
+                    setIsMenuOpen(false);
+                    navigate('/');
+                  }}
+                  className="text-left text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Выйти
+                </button>
+              )}
             </div>
           </nav>
         )}

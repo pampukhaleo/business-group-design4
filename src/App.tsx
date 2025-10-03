@@ -10,9 +10,15 @@ import MedicalEquipment from "./pages/MedicalEquipment";
 import ConstructionMaterials from "./pages/ConstructionMaterials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Auth from "./pages/Auth";
+import CRMDashboard from "./pages/crm/CRMDashboard";
+import LeadDetail from "./pages/crm/LeadDetail";
+import Statistics from "./pages/crm/Statistics";
+import NewLead from "./pages/crm/NewLead";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import QuickContactButtons from "@/components/QuickContactButtons";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +40,11 @@ const App = () => (
               <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
               <Route path="/baumaterialien" element={<ConstructionMaterials />} />
               <Route path="/kontakt" element={<Contact />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/crm" element={<ProtectedRoute requireAdmin><CRMDashboard /></ProtectedRoute>} />
+              <Route path="/crm/lead/:id" element={<ProtectedRoute requireAdmin><LeadDetail /></ProtectedRoute>} />
+              <Route path="/crm/statistics" element={<ProtectedRoute requireAdmin><Statistics /></ProtectedRoute>} />
+              <Route path="/crm/new" element={<ProtectedRoute requireAdmin><NewLead /></ProtectedRoute>} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -1,0 +1,223 @@
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Card } from '@/components/ui/card';
+import { ArrowLeft, Save, Trash2 } from 'lucide-react';
+import StatusBadge from '@/components/crm/StatusBadge';
+import { format } from 'date-fns';
+
+type LeadStatus = 'new' | 'in_progress' | 'completed';
+
+const LeadDetail = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [lead, setLead] = useState<any>(null);
+
+  useEffect(() => {
+    fetchLead();
+  }, [id]);
+
+  const fetchLead = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('leads')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (error) throw error;
+      setLead(data);
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: 'Не удалось загрузить заявку',
+        variant: 'destructive'
+      });
+      navigate('/crm');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .update({
+          name: lead.name,
+          email: lead.email,
+          phone: lead.phone,
+          subject: lead.subject,
+          message: lead.message,
+          status: lead.status
+        })
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: 'Успешно',
+        description: 'Заявка обновлена'
+      });
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: 'Не удалось обновить заявку',
+        variant: 'destructive'
+      });
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!confirm('Вы уверены, что хотите удалить эту заявку?')) return;
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: 'Успешно',
+        description: 'Заявка удалена'
+      });
+
+      navigate('/crm');
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: 'Не удалось удалить заявку',
+        variant: 'destructive'
+      });
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (!lead) return null;
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <Button variant="outline" onClick={() => navigate('/crm')} className="mb-6">
+        <ArrowLeft className="h-4 w-4 mr-2" />
+        Назад к списку
+      </Button>
+
+      <div className="max-w-3xl">
+        <div className="flex justify-between items-start mb-6">
+          <div>
+            <h1 className="text-3xl font-bold text-primary mb-2">Заявка #{lead.id.slice(0, 8)}</h1>
+            <div className="flex gap-4 text-sm text-muted-foreground">
+              <span>Создана: {format(new Date(lead.created_at), 'dd.MM.yyyy HH:mm')}</span>
+              <span>Обновлена: {format(new Date(lead.updated_at), 'dd.MM.yyyy HH:mm')}</span>
+              {lead.completed_at && (
+                <span>Завершена: {format(new Date(lead.completed_at), 'dd.MM.yyyy HH:mm')}</span>
+              )}
+            </div>
+          </div>
+          <StatusBadge status={lead.status} />
+        </div>
+
+        <Card className="p-6">
+          <div className="space-y-6">
+            <div>
+              <Label htmlFor="status">Статус</Label>
+              <Select value={lead.status} onValueChange={(value: LeadStatus) => setLead({ ...lead, status: value })}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="new">Новая</SelectItem>
+                  <SelectItem value="in_progress">В работе</SelectItem>
+                  <SelectItem value="completed">Выполнена</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label htmlFor="name">Имя</Label>
+              <Input
+                id="name"
+                value={lead.name}
+                onChange={(e) => setLead({ ...lead, name: e.target.value })}
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={lead.email}
+                  onChange={(e) => setLead({ ...lead, email: e.target.value })}
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="phone">Телефон</Label>
+                <Input
+                  id="phone"
+                  value={lead.phone || ''}
+                  onChange={(e) => setLead({ ...lead, phone: e.target.value })}
+                />
+              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="subject">Тема</Label>
+              <Input
+                id="subject"
+                value={lead.subject}
+                onChange={(e) => setLead({ ...lead, subject: e.target.value })}
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="message">Сообщение</Label>
+              <Textarea
+                id="message"
+                value={lead.message}
+                onChange={(e) => setLead({ ...lead, message: e.target.value })}
+                className="min-h-[150px]"
+              />
+            </div>
+
+            <div className="flex gap-4">
+              <Button onClick={handleSave} disabled={saving}>
+                <Save className="h-4 w-4 mr-2" />
+                {saving ? 'Сохранение...' : 'Сохранить'}
+              </Button>
+              <Button variant="destructive" onClick={handleDelete}>
+                <Trash2 className="h-4 w-4 mr-2" />
+                Удалить
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default LeadDetail;
