@@ -2,7 +2,7 @@ import ServiceCard from "./ServiceCard";
 import hrServices from "@/assets/hr-services.jpg";
 import productsGoods from "@/assets/products-goods.jpg";
 import medicalEquipment from "@/assets/medical-equipment.jpg";
-import constructionMaterials from "@/assets/construction-materials.jpg";
+
 
 const ServicesSection = () => {
   const services = [
@@ -45,19 +45,6 @@ const ServicesSection = () => {
       accent: false,
       href: "/medizinische-ausruestung"
     },
-    {
-      title: "Baumaterialien",
-      description: "Hochwertige Baumaterialien für professionelle Bauprojekte aller Größenordnungen.",
-      features: [
-        "Naturstein und Marmor",
-        "Beton für Bauprojekte",
-        "Zuverlässige Lieferung und flexible Konditionen"
-      ],
-      image: constructionMaterials,
-      imageAlt: "Quality construction materials and building supplies",
-      accent: false,
-      href: "/baumaterialien"
-    }
   ];
 
   return (
@@ -69,7 +56,7 @@ const ServicesSection = () => {
             Unsere Dienstleistungen
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Wir bieten umfassende Geschäftslösungen in vier Kernbereichen. 
+            Wir bieten umfassende Geschäftslösungen in drei Kernbereichen. 
             Jeder Service wird mit höchster Professionalität und langjähriger Erfahrung durchgeführt.
           </p>
         </div>

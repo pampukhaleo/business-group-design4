@@ -6,7 +6,7 @@ import Index from "./pages/Index";
 import PersonnelService from "./pages/PersonnelService";
 import Products from "./pages/Products";
 import MedicalEquipment from "./pages/MedicalEquipment";
-import ConstructionMaterials from "./pages/ConstructionMaterials";
+
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
@@ -37,7 +37,7 @@ const AppContent = () => {
             <Route path="/kaderpostenservice" element={<PersonnelService />} />
             <Route path="/produkte-haushaltswaren" element={<Products />} />
             <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
-            <Route path="/baumaterialien" element={<ConstructionMaterials />} />
+            
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/crm" element={<ProtectedRoute requireAdmin><CRMLayout /></ProtectedRoute>}>
