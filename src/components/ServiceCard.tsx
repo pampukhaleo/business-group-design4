@@ -24,6 +24,7 @@ const ServiceCard = ({ title, description, features, image, imageAlt, accent = f
         src={image}
         alt={imageAlt}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
       />
       <div className={`absolute inset-0 bg-gradient-to-r ${
         accent ? 'from-accent/60 to-transparent' : 'from-primary/40 to-transparent'

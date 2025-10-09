@@ -15,7 +15,7 @@ const ServicesSection = () => {
         "Qualifizierte und zuverlässige Kandidaten"
       ],
       image: hrServices,
-      imageAlt: "Professional HR and recruitment services",
+      imageAlt: "Professionelle Personalvermittlung - Ärzte und Pflegekräfte für Deutschland",
       accent: false,
       href: "/kaderpostenservice"
     },
@@ -28,7 +28,7 @@ const ServicesSection = () => {
         "Zuverlässige Lieferketten"
       ],
       image: productsGoods,
-      imageAlt: "Quality products and household goods supply",
+      imageAlt: "Premium Lebensmittel und Haushaltswaren Großhandel Deutschland",
       accent: true,
       href: "/produkte-haushaltswaren"
     },
@@ -41,7 +41,7 @@ const ServicesSection = () => {
         "Beratung und Service-Unterstützung"
       ],
       image: medicalEquipment,
-      imageAlt: "Advanced medical equipment and diagnostic systems",
+      imageAlt: "Modernste medizinische Ausrüstung - MRT, CT und Diagnosesysteme",
       accent: false,
       href: "/medizinische-ausruestung"
     },

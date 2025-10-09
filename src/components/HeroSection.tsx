@@ -23,8 +23,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Professional business environment"
+          alt="Professionelle Geschäftslösungen Deutschland - Personalvermittlung und Medizintechnik"
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-hero-gradient opacity-75"></div>
       </div>
@@ -33,13 +35,13 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-            Ihre Geschäftslösungen
+            Professionelle Geschäftslösungen
             <span className="block text-accent">in Deutschland</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Professionelle Dienstleistungen in den Bereichen Personalvermittlung, Handel, 
-            Medizintechnik und Baumaterialien – Ihr zuverlässiger Partner für geschäftlichen Erfolg.
+            Spezialisiert auf Personalvermittlung für medizinische Fachkräfte, Handel mit Premium-Produkten 
+            und modernste Medizintechnik – Ihr zuverlässiger Partner für geschäftlichen Erfolg seit über 10 Jahren.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -12,8 +12,8 @@ interface SEOProps {
 
 const SEO = ({
   title = "Global bridge agency AML (UG) - Professionelle Geschäftslösungen",
-  description = "Global bridge agency AML (UG) - Professionelle Dienstleistungen in Deutschland: Personalvermittlung, Handel, Medizintechnik und Baumaterialien. Ihr zuverlässiger Partner für geschäftlichen Erfolg.",
-  keywords = "Global bridge agency, AML, Personalvermittlung Deutschland, Medizintechnik, Baumaterialien, Handel, Geschäftslösungen, Hamburg",
+  description = "Global bridge agency AML (UG) - Ihr zuverlässiger Partner in Deutschland für professionelle Personalvermittlung, Handel mit Premium-Produkten und modernste Medizintechnik. Über 10 Jahre Erfahrung im deutschen Markt.",
+  keywords = "Global bridge agency, AML, Personalvermittlung Deutschland, medizinische Fachkräfte vermittlung, Medizintechnik, Premium Lebensmittel Großhandel, Haushaltswaren, Geschäftslösungen Hamburg, Ärzte vermittlung, Pflegekräfte Deutschland",
   ogImage = "https://globalbridge-agency.de/og-image.jpg",
   ogType = "website",
   canonicalUrl = "https://globalbridge-agency.de/",
