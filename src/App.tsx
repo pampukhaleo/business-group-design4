@@ -10,11 +10,15 @@ import MedicalEquipment from "./pages/MedicalEquipment";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
+import AGB from "./pages/AGB";
 import CRMDashboard from "./pages/crm/CRMDashboard";
 import LeadDetail from "./pages/crm/LeadDetail";
 import Statistics from "./pages/crm/Statistics";
 import NewLead from "./pages/crm/NewLead";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import QuickContactButtons from "@/components/QuickContactButtons";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -29,9 +33,9 @@ const AppContent = () => {
   return (
     <>
       {!isCRMRoute && <QuickContactButtons variant="fixed" />}
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background flex flex-col">
         {!isCRMRoute && <Header />}
-        <main className={!isCRMRoute ? "pt-20" : ""}>
+        <main className={!isCRMRoute ? "pt-20 flex-1" : "flex-1"}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/kaderpostenservice" element={<PersonnelService />} />
@@ -39,6 +43,9 @@ const AppContent = () => {
             <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
             
             <Route path="/kontakt" element={<Contact />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/agb" element={<AGB />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/crm" element={<ProtectedRoute requireAdmin><CRMLayout /></ProtectedRoute>}>
               <Route index element={<CRMDashboard />} />
@@ -50,6 +57,7 @@ const AppContent = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        {!isCRMRoute && <Footer />}
       </div>
     </>
   );
