@@ -5,6 +5,7 @@ import { ArrowLeft, Heart, Activity, Microscope, Stethoscope, Zap, Settings, Use
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import FAQ from "@/components/FAQ";
 
 const MedicalEquipment = () => {
   const jsonLd = {
@@ -105,6 +106,33 @@ const MedicalEquipment = () => {
     { name: "IEC 60601", description: "Elektrische Sicherheit" }
   ];
 
+  const faqItems = [
+    {
+      question: "Sind alle Geräte CE-zertifiziert?",
+      answer: "Ja, alle unsere medizinischen Geräte verfügen über CE-Kennzeichnung und erfüllen die europäischen Medizinprodukterichtlinien. Zusätzlich sind viele Geräte auch FDA-zugelassen. Wir stellen alle Zertifikate und Konformitätserklärungen zur Verfügung."
+    },
+    {
+      question: "Bieten Sie Installation und Schulung an?",
+      answer: "Ja, unser Service umfasst professionelle Installation, umfassende Einweisung des medizinischen Personals und fortlaufende Schulungen. Wir bieten auch Video-Tutorials und 24/7 telefonischen Support. Die Einweisung erfolgt durch zertifizierte Medizintechniker."
+    },
+    {
+      question: "Wie sieht es mit Wartung und Service aus?",
+      answer: "Wir bieten Vollservice-Verträge mit regelmäßiger Wartung, Sicherheitstechnischen Kontrollen (STK) und schnellen Reparaturdiensten. Unsere Techniker sind deutschlandweit verfügbar und erreichen Sie innerhalb von 24h. Ersatzteile halten wir auf Lager."
+    },
+    {
+      question: "Können Geräte vor dem Kauf getestet werden?",
+      answer: "Ja, wir bieten kostenlose Produktdemonstrationen in Ihrer Einrichtung an. Bei hochpreisigen Geräten ist auch eine Teststellung für bis zu 4 Wochen möglich. So können Sie die Geräte im realen Klinikalltag evaluieren."
+    },
+    {
+      question: "Bieten Sie auch Finanzierungsmöglichkeiten an?",
+      answer: "Ja, wir bieten flexible Finanzierungs- und Leasingmodelle an, angepasst an Ihre Budgetplanung. Auch Mietkauf-Optionen sind verfügbar. Unsere Finanzierungspartner bieten attraktive Konditionen speziell für medizinische Einrichtungen."
+    },
+    {
+      question: "Wie lange ist die Lieferzeit für Geräte?",
+      answer: "Die Lieferzeit variiert je nach Gerät zwischen 2-12 Wochen. Standard-Equipment wie EKG-Geräte oder Monitore sind oft sofort verfügbar. Bei Großgeräten wie MRT oder CT planen wir 8-12 Wochen für Lieferung und Installation ein. Express-Lieferungen sind möglich."
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -113,6 +141,10 @@ const MedicalEquipment = () => {
         keywords="Medizintechnik, medizinische Geräte, Kardiologie Equipment, Intensivmedizin, CE zertifiziert, Hamburg"
         canonicalUrl="https://globalbridge-agency.de/medizinische-ausruestung"
         jsonLd={jsonLd}
+        breadcrumbs={[
+          { name: "Home", url: "https://globalbridge-agency.de/" },
+          { name: "Medizinische Ausrüstung", url: "https://globalbridge-agency.de/medizinische-ausruestung" }
+        ]}
       />
       <div className="min-h-screen bg-background">
         {/* Back Button */}
@@ -269,6 +301,12 @@ const MedicalEquipment = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ 
+        items={faqItems}
+        description="Antworten auf die wichtigsten Fragen zu unseren medizinischen Geräten"
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-primary-gradient">

@@ -5,6 +5,7 @@ import { ArrowLeft, Package, Utensils, Home, ShoppingCart, Truck, Shield, Star, 
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import FAQ from "@/components/FAQ";
 
 const Products = () => {
   const jsonLd = {
@@ -80,6 +81,33 @@ const Products = () => {
     }
   ];
 
+  const faqItems = [
+    {
+      question: "Welche Mindestbestellmenge gibt es?",
+      answer: "Wir bedienen hauptsächlich Großkunden wie Restaurants, Hotels und Kantinen. Die Mindestbestellmenge variiert je nach Produktkategorie. Kontaktieren Sie uns für ein individuelles Angebot. Für Premium-Lebensmittel liegt die Mindestmenge bei 500€, bei Haushaltswaren bei 300€."
+    },
+    {
+      question: "Wie schnell erfolgt die Lieferung?",
+      answer: "Wir bieten eine 24h-Lieferung in ganz Deutschland für alle Bestellungen, die vor 14:00 Uhr eingehen. Eilbestellungen sind nach Absprache möglich. Unsere Kühlkette wird bei allen frischen Produkten garantiert eingehalten."
+    },
+    {
+      question: "Sind die Produkte bio-zertifiziert?",
+      answer: "Ein Großteil unserer Lebensmittel ist bio-zertifiziert und trägt das EU-Bio-Siegel. Alle Produkte werden von uns auf Qualität geprüft. Wir arbeiten nur mit zertifizierten Lieferanten zusammen und können auf Anfrage alle Zertifikate bereitstellen."
+    },
+    {
+      question: "Bieten Sie auch regionale Produkte an?",
+      answer: "Ja, wir legen großen Wert auf regionale Partnerschaften. Unser Gemüse und viele Milchprodukte kommen von regionalen Bauernhöfen aus Norddeutschland. Dies garantiert Frische und unterstützt lokale Produzenten."
+    },
+    {
+      question: "Wie funktioniert die Rückgabe bei Qualitätsmängeln?",
+      answer: "Bei Qualitätsmängeln erstatten wir den vollen Kaufpreis oder liefern kostenfrei Ersatz. Wir haben eine 100% Qualitätsgarantie auf alle unsere Produkte. Kontaktieren Sie uns innerhalb von 24h nach Erhalt der Ware."
+    },
+    {
+      question: "Können wir einen Dauerauftrag einrichten?",
+      answer: "Ja, wir bieten flexible Abo-Modelle für regelmäßige Lieferungen an. Dies spart Zeit und Geld durch Mengenrabatte. Viele unserer Gastronomie-Kunden nutzen diesen Service für ihre Standardprodukte mit bis zu 15% Rabatt."
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -88,6 +116,10 @@ const Products = () => {
         keywords="Großhandel Lebensmittel, Haushaltswaren, Premium Produkte, Bio-zertifiziert, Gastronomie, Hamburg"
         canonicalUrl="https://globalbridge-agency.de/produkte-haushaltswaren"
         jsonLd={jsonLd}
+        breadcrumbs={[
+          { name: "Home", url: "https://globalbridge-agency.de/" },
+          { name: "Produkte & Haushaltswaren", url: "https://globalbridge-agency.de/produkte-haushaltswaren" }
+        ]}
       />
       <div className="min-h-screen bg-background">
         {/* Back Button */}
@@ -236,6 +268,12 @@ const Products = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ 
+        items={faqItems}
+        description="Antworten auf die wichtigsten Fragen zu unseren Produkten"
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-primary-gradient">

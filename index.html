@@ -65,12 +65,39 @@
             "@type": "ImageObject",
             "url": "https://globalbridge-agency.de/og-image.jpg"
           },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": ["+49-157-525-95235", "0021694237848"],
-            "contactType": "customer service",
-            "email": "info@globalbridgeagency.de",
-            "availableLanguage": ["de", "en"]
+          "description": "Professionelle Geschäftslösungen in Deutschland - Personalvermittlung, Premium Produkte & Haushaltswaren, Medizinische Ausrüstung",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": ["+49-157-525-95235", "0021694237848"],
+              "contactType": "customer service",
+              "email": "info@globalbridgeagency.de",
+              "availableLanguage": ["de", "en"],
+              "areaServed": "DE"
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+49-157-525-95235",
+              "contactType": "sales",
+              "areaServed": "DE",
+              "availableLanguage": ["de", "en"]
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Zeidlerstraße 12",
+            "addressLocality": "Hamburg",
+            "postalCode": "21107",
+            "addressCountry": "DE"
+          },
+          "founder": {
+            "@type": "Person",
+            "name": "Global bridge agency AML"
+          },
+          "foundingDate": "2014",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": "50"
           },
           "sameAs": []
         },
@@ -79,6 +106,8 @@
           "@id": "https://globalbridge-agency.de/#localbusiness",
           "name": "Global bridge agency AML (UG)",
           "image": "https://globalbridge-agency.de/og-image.jpg",
+          "description": "Ihr zuverlässiger Partner für Personalvermittlung, Premium Produkte und medizinische Ausrüstung",
+          "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Zeidlerstraße 12",
@@ -93,11 +122,51 @@
           },
           "telephone": ["+49-157-525-95235", "0021694237848"],
           "email": "info@globalbridgeagency.de",
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "18:00"
+          "url": "https://globalbridge-agency.de",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Dienstleistungen",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Personalvermittlung",
+                  "description": "Professionelle Vermittlung von medizinischen Fachkräften und IT-Spezialisten"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Produkte & Haushaltswaren",
+                  "description": "Großhandel für Premium Lebensmittel und Haushaltswaren"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Medizinische Ausrüstung",
+                  "description": "Modernste medizinische Geräte und Technologie"
+                }
+              }
+            ]
           }
         },
         {
@@ -109,7 +178,12 @@
           "publisher": {
             "@id": "https://globalbridge-agency.de/#organization"
           },
-          "inLanguage": "de-DE"
+          "inLanguage": "de-DE",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://globalbridge-agency.de/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         }
       ]
     }

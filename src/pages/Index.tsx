@@ -6,7 +6,11 @@ import SEO from "@/components/SEO";
 const Index = () => {
   return (
     <>
-      <SEO />
+      <SEO 
+        breadcrumbs={[
+          { name: "Home", url: "https://globalbridge-agency.de/" }
+        ]}
+      />
       <div className="min-h-screen">
         <HeroSection />
         <div id="services">

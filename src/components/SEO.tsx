@@ -1,5 +1,10 @@
 import { Helmet } from "react-helmet-async";
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface SEOProps {
   title?: string;
   description?: string;
@@ -8,6 +13,7 @@ interface SEOProps {
   ogType?: string;
   canonicalUrl?: string;
   jsonLd?: object;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const SEO = ({
@@ -18,7 +24,19 @@ const SEO = ({
   ogType = "website",
   canonicalUrl = "https://globalbridge-agency.de/",
   jsonLd,
+  breadcrumbs,
 }: SEOProps) => {
+  // Generate BreadcrumbList schema if breadcrumbs are provided
+  const breadcrumbSchema = breadcrumbs ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": crumb.name,
+      "item": crumb.url
+    }))
+  } : null;
   return (
     <Helmet>
       <title>{title}</title>
@@ -48,6 +66,13 @@ const SEO = ({
       {jsonLd && (
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
+        </script>
+      )}
+      
+      {/* BreadcrumbList Schema */}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       )}
     </Helmet>

@@ -5,6 +5,7 @@ import { ArrowLeft, Users, Heart, Code, GraduationCap, Building2, Star, Trending
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import FAQ from "@/components/FAQ";
 
 const PersonnelService = () => {
   const jsonLd = {
@@ -96,6 +97,33 @@ const PersonnelService = () => {
     }
   ];
 
+  const faqItems = [
+    {
+      question: "Wie lange dauert der Vermittlungsprozess?",
+      answer: "Im Durchschnitt dauert es 7 Tage von der ersten Kontaktaufnahme bis zur erfolgreichen Vermittlung. Je nach Spezialisierung und Anforderungen kann dies variieren. Wir haben über 98% Erfolgsquote bei der Besetzung von Positionen."
+    },
+    {
+      question: "Welche Qualifikationen müssen Kandidaten haben?",
+      answer: "Alle medizinischen Fachkräfte müssen über anerkannte deutsche oder EU-Abschlüsse verfügen. Bei internationalen Abschlüssen unterstützen wir bei der Anerkennung. IT-Spezialisten benötigen nachweisbare Erfahrung und relevante Zertifizierungen."
+    },
+    {
+      question: "Fallen für Kandidaten Kosten an?",
+      answer: "Nein, unsere Dienstleistungen sind für Arbeitssuchende komplett kostenlos. Wir werden ausschließlich von den Arbeitgebern bezahlt. Sie profitieren von unserem Service ohne jegliche finanzielle Verpflichtungen."
+    },
+    {
+      question: "Bieten Sie auch internationale Vermittlungen an?",
+      answer: "Ja, wir vermitteln qualifizierte Fachkräfte aus dem gesamten EU-Raum nach Deutschland. Wir unterstützen bei Visa-Angelegenheiten, Anerkennung von Abschlüssen und helfen bei der Integration in Deutschland."
+    },
+    {
+      question: "Welche Branchen bedienen Sie hauptsächlich?",
+      answer: "Wir spezialisieren uns auf das Gesundheitswesen (Ärzte, Pflegekräfte), IT-Branche (Software-Entwicklung, Cybersecurity) und bieten flexible Lösungen für Studenten in verschiedenen Bereichen. Über 150 Partner-Kliniken vertrauen auf unsere Expertise."
+    },
+    {
+      question: "Gibt es eine Probezeit oder Garantie?",
+      answer: "Ja, wir bieten eine 6-monatige Garantie auf alle Vermittlungen. Sollte die Zusammenarbeit in dieser Zeit nicht funktionieren, suchen wir kostenfrei einen passenden Ersatz. Unsere Zufriedenheitsrate liegt bei 98%."
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -104,6 +132,10 @@ const PersonnelService = () => {
         keywords="Personalvermittlung, Ärzte Deutschland, Pflegekräfte vermittlung, IT-Spezialisten, Hamburg"
         canonicalUrl="https://globalbridge-agency.de/kaderpostenservice"
         jsonLd={jsonLd}
+        breadcrumbs={[
+          { name: "Home", url: "https://globalbridge-agency.de/" },
+          { name: "Personalvermittlung", url: "https://globalbridge-agency.de/kaderpostenservice" }
+        ]}
       />
       <div className="min-h-screen bg-background">
         {/* Back Button */}
@@ -245,6 +277,12 @@ const PersonnelService = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ 
+        items={faqItems}
+        description="Antworten auf die wichtigsten Fragen zur Personalvermittlung"
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-primary-gradient">
