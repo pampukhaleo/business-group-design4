@@ -8,8 +8,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowLeft, Save, Trash2 } from 'lucide-react';
 import StatusBadge from '@/components/crm/StatusBadge';
+import LeadComments from '@/components/crm/LeadComments';
+import LeadHistory from '@/components/crm/LeadHistory';
 import { format } from 'date-fns';
 
 type LeadStatus = 'new' | 'in_progress' | 'completed';
@@ -124,7 +127,7 @@ const LeadDetail = () => {
         Назад к списку
       </Button>
 
-      <div className="max-w-3xl">
+      <div className="max-w-5xl">
         <div className="flex justify-between items-start mb-6">
           <div>
             <h1 className="text-3xl font-bold text-primary mb-2">Заявка #{lead.id.slice(0, 8)}</h1>
@@ -139,96 +142,114 @@ const LeadDetail = () => {
           <StatusBadge status={lead.status} />
         </div>
 
-        <Card className="p-6">
-          <div className="space-y-6">
-            <div>
-              <Label htmlFor="status">Статус</Label>
-              <Select value={lead.status} onValueChange={(value: LeadStatus) => setLead({ ...lead, status: value })}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="new">Новая</SelectItem>
-                  <SelectItem value="in_progress">В работе</SelectItem>
-                  <SelectItem value="completed">Выполнена</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+        <Tabs defaultValue="details" className="w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="details">Детали</TabsTrigger>
+            <TabsTrigger value="comments">Комментарии</TabsTrigger>
+            <TabsTrigger value="history">История</TabsTrigger>
+          </TabsList>
 
-            <div>
-              <Label htmlFor="name">Имя</Label>
-              <Input
-                id="name"
-                value={lead.name}
-                onChange={(e) => setLead({ ...lead, name: e.target.value })}
-              />
-            </div>
+          <TabsContent value="details">
+            <Card className="p-6">
+              <div className="space-y-6">
+                <div>
+                  <Label htmlFor="status">Статус</Label>
+                  <Select value={lead.status} onValueChange={(value: LeadStatus) => setLead({ ...lead, status: value })}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="new">Новая</SelectItem>
+                      <SelectItem value="in_progress">В работе</SelectItem>
+                      <SelectItem value="completed">Выполнена</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={lead.email}
-                  onChange={(e) => setLead({ ...lead, email: e.target.value })}
-                />
+                <div>
+                  <Label htmlFor="name">Имя</Label>
+                  <Input
+                    id="name"
+                    value={lead.name}
+                    onChange={(e) => setLead({ ...lead, name: e.target.value })}
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={lead.email}
+                      onChange={(e) => setLead({ ...lead, email: e.target.value })}
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="phone">Телефон</Label>
+                    <Input
+                      id="phone"
+                      value={lead.phone || ''}
+                      onChange={(e) => setLead({ ...lead, phone: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="price">Цена (€)</Label>
+                  <Input
+                    id="price"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    placeholder="0.00"
+                    value={lead.price || ''}
+                    onChange={(e) => setLead({ ...lead, price: e.target.value ? parseFloat(e.target.value) : null })}
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="subject">Тема</Label>
+                  <Input
+                    id="subject"
+                    value={lead.subject}
+                    onChange={(e) => setLead({ ...lead, subject: e.target.value })}
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="message">Сообщение</Label>
+                  <Textarea
+                    id="message"
+                    value={lead.message}
+                    onChange={(e) => setLead({ ...lead, message: e.target.value })}
+                    className="min-h-[150px]"
+                  />
+                </div>
+
+                <div className="flex gap-4">
+                  <Button onClick={handleSave} disabled={saving}>
+                    <Save className="h-4 w-4 mr-2" />
+                    {saving ? 'Сохранение...' : 'Сохранить'}
+                  </Button>
+                  <Button variant="destructive" onClick={handleDelete}>
+                    <Trash2 className="h-4 w-4 mr-2" />
+                    Удалить
+                  </Button>
+                </div>
               </div>
+            </Card>
+          </TabsContent>
 
-              <div>
-                <Label htmlFor="phone">Телефон</Label>
-                <Input
-                  id="phone"
-                  value={lead.phone || ''}
-                  onChange={(e) => setLead({ ...lead, phone: e.target.value })}
-                />
-              </div>
-            </div>
+          <TabsContent value="comments">
+            <LeadComments leadId={id!} />
+          </TabsContent>
 
-            <div>
-              <Label htmlFor="price">Цена (€)</Label>
-              <Input
-                id="price"
-                type="number"
-                step="0.01"
-                min="0"
-                placeholder="0.00"
-                value={lead.price || ''}
-                onChange={(e) => setLead({ ...lead, price: e.target.value ? parseFloat(e.target.value) : null })}
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="subject">Тема</Label>
-              <Input
-                id="subject"
-                value={lead.subject}
-                onChange={(e) => setLead({ ...lead, subject: e.target.value })}
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="message">Сообщение</Label>
-              <Textarea
-                id="message"
-                value={lead.message}
-                onChange={(e) => setLead({ ...lead, message: e.target.value })}
-                className="min-h-[150px]"
-              />
-            </div>
-
-            <div className="flex gap-4">
-              <Button onClick={handleSave} disabled={saving}>
-                <Save className="h-4 w-4 mr-2" />
-                {saving ? 'Сохранение...' : 'Сохранить'}
-              </Button>
-              <Button variant="destructive" onClick={handleDelete}>
-                <Trash2 className="h-4 w-4 mr-2" />
-                Удалить
-              </Button>
-            </div>
-          </div>
-        </Card>
+          <TabsContent value="history">
+            <LeadHistory leadId={id!} />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
