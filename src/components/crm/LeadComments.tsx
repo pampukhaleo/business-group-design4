@@ -17,7 +17,7 @@ interface Comment {
   profiles?: {
     email: string;
     full_name?: string;
-  };
+  } | null;
 }
 
 interface LeadCommentsProps {
@@ -57,7 +57,7 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setComments(data || []);
+      setComments((data || []) as Comment[]);
     } catch (error) {
       console.error('Error fetching comments:', error);
       toast({

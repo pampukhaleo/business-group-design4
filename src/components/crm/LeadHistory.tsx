@@ -16,7 +16,7 @@ interface HistoryEntry {
   profiles?: {
     email: string;
     full_name?: string;
-  };
+  } | null;
 }
 
 interface LeadHistoryProps {
@@ -47,7 +47,7 @@ const LeadHistory = ({ leadId }: LeadHistoryProps) => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setHistory(data || []);
+      setHistory((data || []) as HistoryEntry[]);
     } catch (error) {
       console.error('Error fetching history:', error);
       toast({
