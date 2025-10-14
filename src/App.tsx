@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import PersonnelService from "./pages/PersonnelService";
-import Products from "./pages/Products";
 import MedicalEquipment from "./pages/MedicalEquipment";
 
 import Contact from "./pages/Contact";
@@ -37,10 +36,9 @@ const AppContent = () => {
         {!isCRMRoute && <Header />}
         <main className={!isCRMRoute ? "pt-20 flex-1" : "flex-1"}>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/kaderpostenservice" element={<PersonnelService />} />
-            <Route path="/produkte-haushaltswaren" element={<Products />} />
-            <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
+        <Route path="/" element={<Index />} />
+        <Route path="/kaderpostenservice" element={<PersonnelService />} />
+        <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
             
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/impressum" element={<Impressum />} />

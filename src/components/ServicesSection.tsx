@@ -1,6 +1,5 @@
 import ServiceCard from "./ServiceCard";
 import hrServices from "@/assets/hr-services.jpg";
-import productsGoods from "@/assets/products-goods.jpg";
 import medicalEquipment from "@/assets/medical-equipment.jpg";
 
 
@@ -18,19 +17,6 @@ const ServicesSection = () => {
       imageAlt: "Professionelle Personalvermittlung - Ärzte und Pflegekräfte für Deutschland",
       accent: false,
       href: "/kaderpostenservice"
-    },
-    {
-      title: "Produkte & Haushaltswaren",
-      description: "Hochwertige Lebensmittel und Haushaltswaren für Unternehmen und den Handel.",
-      features: [
-        "Lebensmittellieferungen für Organisationen",
-        "Haushaltswaren für Privat und Gewerbe",
-        "Zuverlässige Lieferketten"
-      ],
-      image: productsGoods,
-      imageAlt: "Premium Lebensmittel und Haushaltswaren Großhandel Deutschland",
-      accent: true,
-      href: "/produkte-haushaltswaren"
     },
     {
       title: "Medizinische Ausrüstung",
@@ -56,7 +42,7 @@ const ServicesSection = () => {
             Unsere Dienstleistungen
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Wir bieten umfassende Geschäftslösungen in drei Kernbereichen. 
+            Wir bieten umfassende Geschäftslösungen in zwei Kernbereichen. 
             Jeder Service wird mit höchster Professionalität und langjähriger Erfahrung durchgeführt.
           </p>
         </div>
