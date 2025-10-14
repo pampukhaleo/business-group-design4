@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, Users, Heart, Code, GraduationCap, Building2, Star, TrendingUp, Award, Clock } from "lucide-react";
+import { ArrowLeft, Users, Heart, Code, GraduationCap, Building2, Star, TrendingUp, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -22,10 +21,26 @@ const PersonnelService = () => {
     "areaServed": "DE"
   };
   const stats = [
-    { label: "Erfolgreiche Vermittlungen", value: "2,500+", icon: <Award className="h-5 w-5" /> },
-    { label: "Partner Kliniken", value: "150+", icon: <Building2 className="h-5 w-5" /> },
-    { label: "Zufriedenheitsrate", value: "98%", icon: <Star className="h-5 w-5" /> },
-    { label: "Durchschnittliche Vermittlungszeit", value: "7 Tage", icon: <Clock className="h-5 w-5" /> },
+    { 
+      label: "Individueller Ansatz", 
+      description: "Persönliche Betreuung für jeden Kandidaten",
+      icon: <Users className="h-5 w-5" /> 
+    },
+    { 
+      label: "Professionelle Unterstützung", 
+      description: "Von der ersten Kontaktaufnahme bis zur Vertragsunterzeichnung",
+      icon: <Building2 className="h-5 w-5" /> 
+    },
+    { 
+      label: "Transparenter Prozess", 
+      description: "Klare Kommunikation in jedem Schritt",
+      icon: <Star className="h-5 w-5" /> 
+    },
+    { 
+      label: "Verlässlicher Partner", 
+      description: "Ihr Erfolg ist unser Ziel",
+      icon: <Award className="h-5 w-5" /> 
+    },
   ];
 
   const categories = [
@@ -34,7 +49,6 @@ const PersonnelService = () => {
       title: "Ärzte",
       subtitle: "Medizinische Fachkräfte",
       description: "Spezialisierte Ärzte für alle Fachrichtungen",
-      count: "800+",
       color: "personnel",
       positions: [
         "Allgemeinmediziner", "Chirurgen", "Anästhesisten", "Internisten",
@@ -46,7 +60,6 @@ const PersonnelService = () => {
       title: "Pflegekräfte",
       subtitle: "Qualifizierte Pflege",
       description: "Erfahrene Pflegekräfte für verschiedene Bereiche",
-      count: "1,200+",
       color: "medical",
       positions: [
         "Krankenschwestern", "OP-Personal", "Intensivpflege", "Ambulante Pflege",
@@ -58,7 +71,6 @@ const PersonnelService = () => {
       title: "IT-Spezialisten",
       subtitle: "Technologie Experten",
       description: "IT-Fachkräfte für digitale Gesundheitslösungen",
-      count: "300+",
       color: "accent",
       positions: [
         "Software Entwickler", "System Administration", "IT-Support", "Projektmanager",
@@ -70,7 +82,6 @@ const PersonnelService = () => {
       title: "Studenten",
       subtitle: "Flexible Arbeitsplätze",
       description: "Nebenjobs und Praktika für Studenten",
-      count: "500+",
       color: "products",
       positions: [
         "Medizin Studenten", "Pflege Praktikanten", "IT Werkstudenten", "Hilfskräfte",
@@ -82,25 +93,22 @@ const PersonnelService = () => {
   const benefits = [
     {
       title: "Schnelle Vermittlung",
-      description: "Durchschnittlich 7 Tage bis zur Stellenbesetzung",
-      percentage: 95
+      description: "Effiziente Prozesse für zeitnahe Stellenbesetzung"
     },
     {
       title: "Qualitätsgarantie",
-      description: "Alle Kandidaten werden sorgfältig geprüft",
-      percentage: 98
+      description: "Alle Kandidaten werden sorgfältig geprüft und qualifiziert"
     },
     {
       title: "Langfristige Partnerschaften",
-      description: "Aufbau dauerhafter Arbeitsbeziehungen",
-      percentage: 92
+      description: "Aufbau dauerhafter und erfolgreicher Arbeitsbeziehungen"
     }
   ];
 
   const faqItems = [
     {
       question: "Wie lange dauert der Vermittlungsprozess?",
-      answer: "Im Durchschnitt dauert es 7 Tage von der ersten Kontaktaufnahme bis zur erfolgreichen Vermittlung. Je nach Spezialisierung und Anforderungen kann dies variieren. Wir haben über 98% Erfolgsquote bei der Besetzung von Positionen."
+      answer: "Der Vermittlungsprozess erfolgt zeitnah von der ersten Kontaktaufnahme bis zur erfolgreichen Vermittlung. Je nach Spezialisierung und Anforderungen kann dies variieren. Wir arbeiten effizient, um die beste Besetzung für jede Position zu finden."
     },
     {
       question: "Welche Qualifikationen müssen Kandidaten haben?",
@@ -116,11 +124,11 @@ const PersonnelService = () => {
     },
     {
       question: "Welche Branchen bedienen Sie hauptsächlich?",
-      answer: "Wir spezialisieren uns auf das Gesundheitswesen (Ärzte, Pflegekräfte), IT-Branche (Software-Entwicklung, Cybersecurity) und bieten flexible Lösungen für Studenten in verschiedenen Bereichen. Über 150 Partner-Kliniken vertrauen auf unsere Expertise."
+      answer: "Wir spezialisieren uns auf das Gesundheitswesen (Ärzte, Pflegekräfte), IT-Branche (Software-Entwicklung, Cybersecurity) und bieten flexible Lösungen für Studenten in verschiedenen Bereichen. Wir bauen kontinuierlich unser Netzwerk von Partner-Kliniken und Unternehmen aus."
     },
     {
       question: "Gibt es eine Probezeit oder Garantie?",
-      answer: "Ja, wir bieten eine 6-monatige Garantie auf alle Vermittlungen. Sollte die Zusammenarbeit in dieser Zeit nicht funktionieren, suchen wir kostenfrei einen passenden Ersatz. Unsere Zufriedenheitsrate liegt bei 98%."
+      answer: "Ja, wir bieten eine 6-monatige Garantie auf alle Vermittlungen. Sollte die Zusammenarbeit in dieser Zeit nicht funktionieren, suchen wir kostenfrei einen passenden Ersatz. Ihre Zufriedenheit ist unser oberstes Ziel."
     }
   ];
 
@@ -128,7 +136,7 @@ const PersonnelService = () => {
     <>
       <SEO
         title="Personalvermittlung - Ärzte, Pflegekräfte & IT-Spezialisten | Global bridge agency AML (UG)"
-        description="Professionelle Personalvermittlung für medizinische Fachkräfte, Pflegepersonal und IT-Spezialisten in Deutschland. 2.500+ erfolgreiche Vermittlungen, 98% Zufriedenheitsrate."
+        description="Professionelle Personalvermittlung für medizinische Fachkräfte, Pflegepersonal und IT-Spezialisten in Deutschland. Individuelle Betreuung und transparenter Vermittlungsprozess."
         keywords="Personalvermittlung, Ärzte Deutschland, Pflegekräfte vermittlung, IT-Spezialisten, Hamburg"
         canonicalUrl="https://globalbridge-agency.de/kaderpostenservice"
         jsonLd={jsonLd}
@@ -172,10 +180,10 @@ const PersonnelService = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
               {stats.map((stat, index) => (
                 <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardContent className="p-4 text-center">
-                    <div className="text-white/80 mb-1">{stat.icon}</div>
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-xs text-white/70">{stat.label}</div>
+                  <CardContent className="p-6 text-center">
+                    <div className="text-white/80 mb-3 flex justify-center">{stat.icon}</div>
+                    <div className="text-lg font-bold text-white mb-2">{stat.label}</div>
+                    <div className="text-sm text-white/70">{stat.description}</div>
                   </CardContent>
                 </Card>
               ))}
@@ -211,9 +219,6 @@ const PersonnelService = () => {
                         {category.icon}
                       </div>
                     </div>
-                    <div className={`px-3 py-1 bg-${category.color}/10 text-${category.color} rounded-full text-sm font-semibold`}>
-                      {category.count}
-                    </div>
                   </div>
                   <CardTitle className="text-2xl font-bold text-card-foreground group-hover:text-primary transition-colors duration-300">
                     {category.title}
@@ -246,30 +251,20 @@ const PersonnelService = () => {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 animate-fade-in">
               <TrendingUp className="h-16 w-16 text-personnel mx-auto mb-6" />
-              <h2 className="text-4xl font-bold text-primary mb-6">
-                Warum wir die beste Wahl sind
+               <h2 className="text-4xl font-bold text-primary mb-6">
+                Warum mit uns zusammenarbeiten?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Unsere Erfolgsbilanz spricht für sich
+                Unser Engagement für Ihren Erfolg
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
                 <Card key={index} className="text-center p-8 hover:shadow-personnel transition-all duration-300 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardContent className="space-y-6">
-                    <div className="space-y-4">
-                      <h3 className="text-xl font-bold text-card-foreground">{benefit.title}</h3>
-                      <p className="text-muted-foreground">{benefit.description}</p>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Erfolgsrate</span>
-                        <span className="font-bold text-personnel">{benefit.percentage}%</span>
-                      </div>
-                      <Progress value={benefit.percentage} className="h-3" />
-                    </div>
+                  <CardContent className="space-y-4">
+                    <h3 className="text-xl font-bold text-card-foreground">{benefit.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
                   </CardContent>
                 </Card>
               ))}
