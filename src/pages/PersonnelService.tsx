@@ -138,11 +138,11 @@ const PersonnelService = () => {
         title="Personalvermittlung - Ärzte, Pflegekräfte & IT-Spezialisten | Global bridge agency AML (UG)"
         description="Professionelle Personalvermittlung für medizinische Fachkräfte, Pflegepersonal und IT-Spezialisten in Deutschland. Individuelle Betreuung und transparenter Vermittlungsprozess."
         keywords="Personalvermittlung, Ärzte Deutschland, Pflegekräfte vermittlung, IT-Spezialisten, Hamburg"
-        canonicalUrl="https://globalbridge-agency.de/kaderpostenservice"
+        canonicalUrl="https://globalbridge-agency.de/personalvermittlung"
         jsonLd={jsonLd}
         breadcrumbs={[
           { name: "Home", url: "https://globalbridge-agency.de/" },
-          { name: "Personalvermittlung", url: "https://globalbridge-agency.de/kaderpostenservice" }
+          { name: "Personalvermittlung", url: "https://globalbridge-agency.de/personalvermittlung" }
         ]}
       />
       <div className="min-h-screen bg-background">

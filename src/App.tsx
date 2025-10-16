@@ -37,7 +37,7 @@ const AppContent = () => {
         <main className={!isCRMRoute ? "pt-20 flex-1" : "flex-1"}>
           <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/kaderpostenservice" element={<PersonnelService />} />
+        <Route path="/personalvermittlung" element={<PersonnelService />} />
         <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
             
             <Route path="/kontakt" element={<Contact />} />

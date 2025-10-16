@@ -20,13 +20,8 @@ const Footer = () => {
             <h3 className="font-semibold text-foreground mb-4">Dienstleistungen</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/kaderpostenservice" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Kaderpostenservice
-                </Link>
-              </li>
-              <li>
-                <Link to="/produkte-haushaltswaren" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Produkte & Haushaltswaren
+                <Link to="/personalvermittlung" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Personalvermittlung
                 </Link>
               </li>
               <li>

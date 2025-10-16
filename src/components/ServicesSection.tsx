@@ -6,7 +6,7 @@ import medicalEquipment from "@/assets/medical-equipment.jpg";
 const ServicesSection = () => {
   const services = [
     {
-      title: "Kaderpostenservice",
+      title: "Personalvermittlung",
       description: "Professionelle Personalvermittlung und Rekrutierung für alle Branchen und Positionen.",
       features: [
         "Gezielte Suche und Auswahl von Fachkräften",
@@ -16,7 +16,7 @@ const ServicesSection = () => {
       image: hrServices,
       imageAlt: "Professionelle Personalvermittlung - Ärzte und Pflegekräfte für Deutschland",
       accent: false,
-      href: "/kaderpostenservice"
+      href: "/personalvermittlung"
     },
     {
       title: "Medizinische Ausrüstung",
