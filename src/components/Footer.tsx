@@ -29,6 +29,11 @@ const Footer = () => {
                   Medizinische Ausrüstung
                 </Link>
               </li>
+              <li>
+                <Link to="/generatoren" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Generatoren
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -1,6 +1,7 @@
 import ServiceCard from "./ServiceCard";
 import hrServices from "@/assets/hr-services.jpg";
 import medicalEquipment from "@/assets/medical-equipment.jpg";
+import generators from "@/assets/generators.jpg";
 
 
 const ServicesSection = () => {
@@ -31,6 +32,19 @@ const ServicesSection = () => {
       accent: false,
       href: "/medizinische-ausruestung"
     },
+    {
+      title: "Generatoren",
+      description: "Professionelle Diesel- und Gasgeneratoren für zuverlässige Stromversorgung.",
+      features: [
+        "Diesel- und Gas-Generatoren",
+        "Notstrom-Systeme und USV",
+        "Installation, Wartung und 24/7 Service"
+      ],
+      image: generators,
+      imageAlt: "Professionelle Stromerzeuger - Diesel und Gas Generatoren",
+      accent: false,
+      href: "/generatoren"
+    },
   ];
 
   return (
@@ -42,7 +56,7 @@ const ServicesSection = () => {
             Unsere Dienstleistungen
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Wir bieten umfassende Geschäftslösungen in zwei Kernbereichen. 
+            Wir bieten umfassende Geschäftslösungen in drei Kernbereichen. 
             Jeder Service wird mit höchster Professionalität und langjähriger Erfahrung durchgeführt.
           </p>
         </div>

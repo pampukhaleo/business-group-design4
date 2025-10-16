@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import PersonnelService from "./pages/PersonnelService";
 import MedicalEquipment from "./pages/MedicalEquipment";
-
+import GeneratorSales from "./pages/GeneratorSales";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
@@ -39,6 +39,7 @@ const AppContent = () => {
         <Route path="/" element={<Index />} />
         <Route path="/personalvermittlung" element={<PersonnelService />} />
         <Route path="/medizinische-ausruestung" element={<MedicalEquipment />} />
+        <Route path="/generatoren" element={<GeneratorSales />} />
             
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/impressum" element={<Impressum />} />
