@@ -157,41 +157,6 @@ const PersonnelService = () => {
           <Breadcrumbs items={[{ label: "Personalvermittlung" }]} />
       </div>
 
-      {/* Hero Section */}
-      <section className="py-20 bg-primary-gradient relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-5xl mx-auto animate-fade-in">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full mb-8 animate-float">
-              <Users className="h-12 w-12 text-white" />
-            </div>
-            <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Personalvermittlung
-              <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text">
-                der Zukunft
-              </span>
-            </h1>
-            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              Spezialisiert auf medizinisches Personal, Pflegekräfte, IT-Experten und Studenten. 
-              Wir verbinden Talente mit den besten Arbeitgebern in Deutschland.
-            </p>
-            
-            {/* Stats Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-              {stats.map((stat, index) => (
-                <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardContent className="p-6 text-center">
-                    <div className="text-white/80 mb-3 flex justify-center">{stat.icon}</div>
-                    <div className="text-lg font-bold text-white mb-2">{stat.label}</div>
-                    <div className="text-sm text-white/70">{stat.description}</div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Categories Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">

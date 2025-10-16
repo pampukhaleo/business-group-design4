@@ -159,41 +159,6 @@ const GeneratorSales = () => {
           <Breadcrumbs items={[{ label: "Generatoren" }]} />
         </div>
 
-        {/* Hero Section */}
-        <section className="py-20 bg-primary-gradient relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="text-center max-w-5xl mx-auto animate-fade-in">
-              <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full mb-8 animate-float">
-                <Zap className="h-12 w-12 text-white" />
-              </div>
-              <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Professionelle
-                <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text">
-                  Stromerzeuger
-                </span>
-              </h1>
-              <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8">
-                Zuverlässige Diesel- und Gasgeneratoren für Industrie, Gewerbe 
-                und sichere Notstromversorgung.
-              </p>
-
-              {/* Service Features */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-                {services.map((service, index) => (
-                  <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <CardContent className="p-4 text-center">
-                      <div className="text-white/80 mb-2">{service.icon}</div>
-                      <div className="text-sm font-bold text-white">{service.title}</div>
-                      <div className="text-xs text-white/70">{service.description}</div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Generator Categories */}
         <section className="py-20">
           <div className="container mx-auto px-4">
