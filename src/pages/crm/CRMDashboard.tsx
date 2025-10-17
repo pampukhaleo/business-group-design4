@@ -30,8 +30,8 @@ const CRMDashboard = () => {
       setFilteredLeads(data || []);
     } catch (error) {
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось загрузить заявки',
+        title: 'Error',
+        description: 'Failed to load leads',
         variant: 'destructive'
       });
     } finally {
@@ -78,15 +78,15 @@ const CRMDashboard = () => {
       if (error) throw error;
 
       toast({
-        title: 'Успешно',
-        description: 'Статус заявки обновлен'
+        title: 'Success',
+        description: 'Lead status updated'
       });
 
       fetchLeads();
     } catch (error) {
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось обновить статус',
+        title: 'Error',
+        description: 'Failed to update status',
         variant: 'destructive'
       });
     }
@@ -102,22 +102,22 @@ const CRMDashboard = () => {
       if (error) throw error;
 
       toast({
-        title: 'Успешно',
-        description: 'Цена обновлена'
+        title: 'Success',
+        description: 'Price updated'
       });
 
       fetchLeads();
     } catch (error) {
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось обновить цену',
+        title: 'Error',
+        description: 'Failed to update price',
         variant: 'destructive'
       });
     }
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Вы уверены, что хотите удалить эту заявку?')) return;
+    if (!confirm('Are you sure you want to delete this lead?')) return;
 
     try {
       const { error } = await supabase
@@ -128,15 +128,15 @@ const CRMDashboard = () => {
       if (error) throw error;
 
       toast({
-        title: 'Успешно',
-        description: 'Заявка удалена'
+        title: 'Success',
+        description: 'Lead deleted'
       });
 
       fetchLeads();
     } catch (error) {
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось удалить заявку',
+        title: 'Error',
+        description: 'Failed to delete lead',
         variant: 'destructive'
       });
     }
@@ -154,12 +154,12 @@ const CRMDashboard = () => {
     <div className="container mx-auto px-4 py-4 md:py-8">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 md:mb-8">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">Управление заявками</h1>
-          <p className="text-muted-foreground">Всего заявок: {leads.length}</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">Lead Management</h1>
+          <p className="text-muted-foreground">Total leads: {leads.length}</p>
         </div>
         <Button onClick={() => navigate('/crm/new')} className="w-full md:w-auto">
           <Plus className="h-4 w-4 mr-2" />
-          Создать заявку
+          Create Lead
         </Button>
       </div>
 

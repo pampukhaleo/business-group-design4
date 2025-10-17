@@ -41,8 +41,8 @@ const LeadDetail = () => {
       setLead(data);
     } catch (error) {
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось загрузить заявку',
+        title: 'Error',
+        description: 'Failed to load lead',
         variant: 'destructive'
       });
       navigate('/crm');
@@ -70,13 +70,13 @@ const LeadDetail = () => {
       if (error) throw error;
 
       toast({
-        title: 'Успешно',
-        description: 'Заявка обновлена'
+        title: 'Success',
+        description: 'Lead updated'
       });
     } catch (error) {
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось обновить заявку',
+        title: 'Error',
+        description: 'Failed to update lead',
         variant: 'destructive'
       });
     } finally {
@@ -85,7 +85,7 @@ const LeadDetail = () => {
   };
 
   const handleDelete = async () => {
-    if (!confirm('Вы уверены, что хотите удалить эту заявку?')) return;
+    if (!confirm('Are you sure you want to delete this lead?')) return;
 
     try {
       const { error } = await supabase
@@ -96,15 +96,15 @@ const LeadDetail = () => {
       if (error) throw error;
 
       toast({
-        title: 'Успешно',
-        description: 'Заявка удалена'
+        title: 'Success',
+        description: 'Lead deleted'
       });
 
       navigate('/crm');
     } catch (error) {
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось удалить заявку',
+        title: 'Error',
+        description: 'Failed to delete lead',
         variant: 'destructive'
       });
     }
@@ -124,18 +124,18 @@ const LeadDetail = () => {
     <div className="container mx-auto px-4 py-8">
       <Button variant="outline" onClick={() => navigate('/crm')} className="mb-6">
         <ArrowLeft className="h-4 w-4 mr-2" />
-        Назад к списку
+        Back to list
       </Button>
 
       <div className="max-w-5xl">
         <div className="flex justify-between items-start mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-primary mb-2">Заявка #{lead.id.slice(0, 8)}</h1>
+            <h1 className="text-3xl font-bold text-primary mb-2">Lead #{lead.id.slice(0, 8)}</h1>
             <div className="flex gap-4 text-sm text-muted-foreground">
-              <span>Создана: {format(new Date(lead.created_at), 'dd.MM.yyyy HH:mm')}</span>
-              <span>Обновлена: {format(new Date(lead.updated_at), 'dd.MM.yyyy HH:mm')}</span>
+              <span>Created: {format(new Date(lead.created_at), 'dd.MM.yyyy HH:mm')}</span>
+              <span>Updated: {format(new Date(lead.updated_at), 'dd.MM.yyyy HH:mm')}</span>
               {lead.completed_at && (
-                <span>Завершена: {format(new Date(lead.completed_at), 'dd.MM.yyyy HH:mm')}</span>
+                <span>Completed: {format(new Date(lead.completed_at), 'dd.MM.yyyy HH:mm')}</span>
               )}
             </div>
           </div>
@@ -144,30 +144,30 @@ const LeadDetail = () => {
 
         <Tabs defaultValue="details" className="w-full">
           <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="details">Детали</TabsTrigger>
-            <TabsTrigger value="comments">Комментарии</TabsTrigger>
-            <TabsTrigger value="history">История</TabsTrigger>
+            <TabsTrigger value="details">Details</TabsTrigger>
+            <TabsTrigger value="comments">Comments</TabsTrigger>
+            <TabsTrigger value="history">History</TabsTrigger>
           </TabsList>
 
           <TabsContent value="details">
             <Card className="p-6">
               <div className="space-y-6">
                 <div>
-                  <Label htmlFor="status">Статус</Label>
+                  <Label htmlFor="status">Status</Label>
                   <Select value={lead.status} onValueChange={(value: LeadStatus) => setLead({ ...lead, status: value })}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="new">Новая</SelectItem>
-                      <SelectItem value="in_progress">В работе</SelectItem>
-                      <SelectItem value="completed">Выполнена</SelectItem>
+                      <SelectItem value="new">New</SelectItem>
+                      <SelectItem value="in_progress">In Progress</SelectItem>
+                      <SelectItem value="completed">Completed</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div>
-                  <Label htmlFor="name">Имя</Label>
+                  <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
                     value={lead.name}
@@ -187,7 +187,7 @@ const LeadDetail = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="phone">Телефон</Label>
+                    <Label htmlFor="phone">Phone</Label>
                     <Input
                       id="phone"
                       value={lead.phone || ''}
@@ -197,7 +197,7 @@ const LeadDetail = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="price">Цена (€)</Label>
+                  <Label htmlFor="price">Price (€)</Label>
                   <Input
                     id="price"
                     type="number"
@@ -210,7 +210,7 @@ const LeadDetail = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="subject">Тема</Label>
+                  <Label htmlFor="subject">Subject</Label>
                   <Input
                     id="subject"
                     value={lead.subject}
@@ -219,7 +219,7 @@ const LeadDetail = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="message">Сообщение</Label>
+                  <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
                     value={lead.message}
@@ -231,11 +231,11 @@ const LeadDetail = () => {
                 <div className="flex gap-4">
                   <Button onClick={handleSave} disabled={saving}>
                     <Save className="h-4 w-4 mr-2" />
-                    {saving ? 'Сохранение...' : 'Сохранить'}
+                    {saving ? 'Saving...' : 'Save'}
                   </Button>
                   <Button variant="destructive" onClick={handleDelete}>
                     <Trash2 className="h-4 w-4 mr-2" />
-                    Удалить
+                    Delete
                   </Button>
                 </div>
               </div>

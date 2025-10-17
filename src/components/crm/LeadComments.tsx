@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { MessageSquare, Send, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
 
 interface Comment {
   id: string;
@@ -61,8 +60,8 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
     } catch (error) {
       console.error('Error fetching comments:', error);
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось загрузить комментарии',
+        title: 'Error',
+        description: 'Failed to load comments',
         variant: 'destructive'
       });
     } finally {
@@ -91,14 +90,14 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
       setNewComment('');
       fetchComments();
       toast({
-        title: 'Успешно',
-        description: 'Комментарий добавлен'
+        title: 'Success',
+        description: 'Comment added'
       });
     } catch (error) {
       console.error('Error adding comment:', error);
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось добавить комментарий',
+        title: 'Error',
+        description: 'Failed to add comment',
         variant: 'destructive'
       });
     } finally {
@@ -107,7 +106,7 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
   };
 
   const handleDelete = async (commentId: string) => {
-    if (!confirm('Вы уверены, что хотите удалить комментарий?')) return;
+    if (!confirm('Are you sure you want to delete this comment?')) return;
 
     try {
       const { error } = await supabase
@@ -119,14 +118,14 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
 
       fetchComments();
       toast({
-        title: 'Успешно',
-        description: 'Комментарий удален'
+        title: 'Success',
+        description: 'Comment deleted'
       });
     } catch (error) {
       console.error('Error deleting comment:', error);
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось удалить комментарий',
+        title: 'Error',
+        description: 'Failed to delete comment',
         variant: 'destructive'
       });
     }
@@ -137,7 +136,7 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
       <Card className="p-6">
         <div className="flex items-center gap-2 mb-4">
           <MessageSquare className="h-5 w-5 text-primary" />
-          <h3 className="text-lg font-semibold">Комментарии</h3>
+          <h3 className="text-lg font-semibold">Comments</h3>
         </div>
         <div className="animate-pulse space-y-4">
           <div className="h-20 bg-muted rounded"></div>
@@ -151,13 +150,13 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
     <Card className="p-6">
       <div className="flex items-center gap-2 mb-6">
         <MessageSquare className="h-5 w-5 text-primary" />
-        <h3 className="text-lg font-semibold">Комментарии ({comments.length})</h3>
+        <h3 className="text-lg font-semibold">Comments ({comments.length})</h3>
       </div>
 
       {/* Add new comment */}
       <div className="mb-6">
         <Textarea
-          placeholder="Добавить комментарий..."
+          placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           className="mb-2"
@@ -169,7 +168,7 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
           size="sm"
         >
           <Send className="h-4 w-4 mr-2" />
-          {submitting ? 'Отправка...' : 'Отправить'}
+          {submitting ? 'Sending...' : 'Send'}
         </Button>
       </div>
 
@@ -177,7 +176,7 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
       <div className="space-y-4">
         {comments.length === 0 ? (
           <p className="text-center text-muted-foreground py-8">
-            Комментариев пока нет
+            No comments yet
           </p>
         ) : (
           comments.map((comment) => (
@@ -188,11 +187,10 @@ const LeadComments = ({ leadId }: LeadCommentsProps) => {
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <p className="font-medium text-sm">
-                    {comment.profiles?.full_name || comment.profiles?.email || 'Пользователь'}
+                    {comment.profiles?.full_name || comment.profiles?.email || 'User'}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {format(new Date(comment.created_at), 'd MMMM yyyy, HH:mm', { locale: ru })}
-                  </p>
+                    {format(new Date(comment.created_at), 'd MMMM yyyy, HH:mm')}</p>
                 </div>
                 {currentUserId === comment.user_id && (
                   <Button

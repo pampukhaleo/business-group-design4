@@ -4,7 +4,6 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { format, startOfMonth, endOfMonth, subMonths, addMonths } from 'date-fns';
-import { ru } from 'date-fns/locale';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Statistics = () => {
@@ -44,9 +43,9 @@ const Statistics = () => {
   const averagePrice = completedLeadsWithPrice.length > 0 ? totalRevenue / completedLeadsWithPrice.length : 0;
   
   const statusData = [
-    { name: 'Новые', value: leads.filter((l: any) => l.status === 'new').length, color: '#3b82f6' },
-    { name: 'В работе', value: leads.filter((l: any) => l.status === 'in_progress').length, color: '#eab308' },
-    { name: 'Выполнены', value: completedLeads.length, color: '#22c55e' }
+    { name: 'New', value: leads.filter((l: any) => l.status === 'new').length, color: '#3b82f6' },
+    { name: 'In Progress', value: leads.filter((l: any) => l.status === 'in_progress').length, color: '#eab308' },
+    { name: 'Completed', value: completedLeads.length, color: '#22c55e' }
   ];
 
   const dailyStats = completedLeads.reduce((acc: any, lead: any) => {
@@ -76,13 +75,13 @@ const Statistics = () => {
   return (
     <div className="container mx-auto px-4 py-4 md:py-8">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 md:mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-primary">Статистика</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-primary">Statistics</h1>
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" onClick={() => setSelectedMonth(subMonths(selectedMonth, 1))}>
             <ChevronLeft className="h-4 w-4" />
           </Button>
           <span className="text-sm md:text-lg font-medium min-w-[150px] md:min-w-[200px] text-center">
-            {format(selectedMonth, 'LLLL yyyy', { locale: ru })}
+            {format(selectedMonth, 'MMMM yyyy')}
           </span>
           <Button variant="outline" size="icon" onClick={() => setSelectedMonth(addMonths(selectedMonth, 1))}>
             <ChevronRight className="h-4 w-4" />
@@ -92,29 +91,29 @@ const Statistics = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
         <Card className="p-4 md:p-6">
-          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Всего заявок</h3>
+          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Total Leads</h3>
           <p className="text-2xl md:text-3xl font-bold text-primary">{leads.length}</p>
         </Card>
         <Card className="p-4 md:p-6">
-          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Выполнено</h3>
+          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Completed</h3>
           <p className="text-2xl md:text-3xl font-bold text-green-600">{completedLeads.length}</p>
         </Card>
         <Card className="p-4 md:p-6">
-          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Общая выручка</h3>
+          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Total Revenue</h3>
           <p className="text-xl md:text-3xl font-bold text-primary">{formatPrice(totalRevenue)}</p>
           <p className="text-xs text-muted-foreground mt-1">
-            {completedLeadsWithPrice.length} из {completedLeads.length} заявок
+            {completedLeadsWithPrice.length} of {completedLeads.length} leads
           </p>
         </Card>
         <Card className="p-4 md:p-6">
-          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Средняя стоимость</h3>
+          <h3 className="text-xs md:text-sm font-medium text-muted-foreground mb-2">Average Price</h3>
           <p className="text-xl md:text-3xl font-bold text-primary">{formatPrice(averagePrice)}</p>
         </Card>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
         <Card className="p-4 md:p-6">
-          <h2 className="text-lg md:text-xl font-bold mb-4">Распределение по статусам</h2>
+          <h2 className="text-lg md:text-xl font-bold mb-4">Status Distribution</h2>
           <ResponsiveContainer width="100%" height={250} className="md:h-[300px]">
             <PieChart>
               <Pie
@@ -137,7 +136,7 @@ const Statistics = () => {
         </Card>
 
         <Card className="p-4 md:p-6">
-          <h2 className="text-lg md:text-xl font-bold mb-4">Выполненные заявки по дням</h2>
+          <h2 className="text-lg md:text-xl font-bold mb-4">Completed Leads by Day</h2>
           <ResponsiveContainer width="100%" height={250} className="md:h-[300px]">
             <BarChart data={dailyData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -145,23 +144,23 @@ const Statistics = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="count" fill="#22c55e" name="Заявок" />
+              <Bar dataKey="count" fill="#22c55e" name="Leads" />
             </BarChart>
           </ResponsiveContainer>
         </Card>
       </div>
 
       <Card className="p-4 md:p-6">
-        <h2 className="text-lg md:text-xl font-bold mb-4">Выполненные заявки</h2>
+        <h2 className="text-lg md:text-xl font-bold mb-4">Completed Leads</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-2">Имя</th>
+                <th className="text-left py-2">Name</th>
                 <th className="text-left py-2 hidden md:table-cell">Email</th>
-                <th className="text-left py-2">Тема</th>
-                <th className="text-right py-2">Цена</th>
-                <th className="text-left py-2 hidden lg:table-cell">Дата завершения</th>
+                <th className="text-left py-2">Subject</th>
+                <th className="text-right py-2">Price</th>
+                <th className="text-left py-2 hidden lg:table-cell">Completion Date</th>
               </tr>
             </thead>
             <tbody>
@@ -180,7 +179,7 @@ const Statistics = () => {
               ))}
               {completedLeads.length > 0 && (
                 <tr className="border-t-2 font-bold">
-                  <td colSpan={3} className="py-2 text-right">Итого:</td>
+                  <td colSpan={3} className="py-2 text-right">Total:</td>
                   <td className="py-2 text-right">{formatPrice(totalRevenue)}</td>
                   <td className="hidden lg:table-cell"></td>
                 </tr>
@@ -188,7 +187,7 @@ const Statistics = () => {
             </tbody>
           </table>
           {completedLeads.length === 0 && (
-            <p className="text-center text-muted-foreground py-8">Нет выполненных заявок</p>
+            <p className="text-center text-muted-foreground py-8">No completed leads</p>
           )}
         </div>
       </Card>

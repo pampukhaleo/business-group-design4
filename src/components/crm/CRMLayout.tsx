@@ -12,8 +12,8 @@ const CRMLayout = () => {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { to: '/crm', label: 'Заявки', icon: LayoutDashboard },
-    { to: '/crm/statistics', label: 'Статистика', icon: BarChart3 }
+    { to: '/crm', label: 'Leads', icon: LayoutDashboard },
+    { to: '/crm/statistics', label: 'Statistics', icon: BarChart3 }
   ];
 
   const handleSignOut = async () => {
@@ -23,7 +23,7 @@ const CRMLayout = () => {
 
   const NavigationContent = () => (
     <>
-      <h2 className="text-2xl font-bold text-primary mb-8">CRM Система</h2>
+      <h2 className="text-2xl font-bold text-primary mb-8">CRM System</h2>
       <nav className="space-y-2">
         {navItems.map((item) => (
           <NavLink
@@ -52,7 +52,7 @@ const CRMLayout = () => {
           onClick={handleSignOut}
         >
           <LogOut className="h-4 w-4 mr-2" />
-          Выйти
+          Sign Out
         </Button>
       </div>
     </>
@@ -72,7 +72,7 @@ const CRMLayout = () => {
             <NavigationContent />
           </SheetContent>
         </Sheet>
-        <h2 className="text-lg font-bold text-primary ml-4">CRM Система</h2>
+        <h2 className="text-lg font-bold text-primary ml-4">CRM System</h2>
       </div>
 
       {/* Desktop Sidebar */}

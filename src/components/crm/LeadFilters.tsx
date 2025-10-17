@@ -13,10 +13,10 @@ interface LeadFiltersProps {
 
 const LeadFilters = ({ selectedStatus, onStatusChange, searchQuery, onSearchChange }: LeadFiltersProps) => {
   const statuses: { value: LeadStatus; label: string }[] = [
-    { value: 'all', label: 'Все' },
-    { value: 'new', label: 'Новые' },
-    { value: 'in_progress', label: 'В работе' },
-    { value: 'completed', label: 'Выполненные' }
+    { value: 'all', label: 'All' },
+    { value: 'new', label: 'New' },
+    { value: 'in_progress', label: 'In Progress' },
+    { value: 'completed', label: 'Completed' }
   ];
 
   return (
@@ -37,7 +37,7 @@ const LeadFilters = ({ selectedStatus, onStatusChange, searchQuery, onSearchChan
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           type="text"
-          placeholder="Поиск по имени, email или телефону..."
+          placeholder="Search by name, email or phone..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           className="pl-10"

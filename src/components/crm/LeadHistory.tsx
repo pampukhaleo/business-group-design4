@@ -4,7 +4,6 @@ import { useToast } from '@/hooks/use-toast';
 import { Card } from '@/components/ui/card';
 import { History, Clock } from 'lucide-react';
 import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
 
 interface HistoryEntry {
   id: string;
@@ -51,8 +50,8 @@ const LeadHistory = ({ leadId }: LeadHistoryProps) => {
     } catch (error) {
       console.error('Error fetching history:', error);
       toast({
-        title: 'Ошибка',
-        description: 'Не удалось загрузить историю',
+        title: 'Error',
+        description: 'Failed to load history',
         variant: 'destructive'
       });
     } finally {
@@ -62,22 +61,22 @@ const LeadHistory = ({ leadId }: LeadHistoryProps) => {
 
   const getFieldLabel = (fieldName?: string) => {
     const labels: Record<string, string> = {
-      status: 'Статус',
-      price: 'Цена',
-      name: 'Имя',
+      status: 'Status',
+      price: 'Price',
+      name: 'Name',
       email: 'Email',
-      phone: 'Телефон',
-      subject: 'Тема',
-      message: 'Сообщение'
+      phone: 'Phone',
+      subject: 'Subject',
+      message: 'Message'
     };
     return fieldName ? labels[fieldName] || fieldName : '';
   };
 
   const getStatusLabel = (status: string) => {
     const labels: Record<string, string> = {
-      new: 'Новая',
-      in_progress: 'В работе',
-      completed: 'Выполнена'
+      new: 'New',
+      in_progress: 'In Progress',
+      completed: 'Completed'
     };
     return labels[status] || status;
   };
@@ -91,10 +90,10 @@ const LeadHistory = ({ leadId }: LeadHistoryProps) => {
 
   const getActionText = (entry: HistoryEntry) => {
     if (entry.action === 'created') {
-      return 'Заявка создана';
+      return 'Lead created';
     }
     if (entry.action === 'update' && entry.field_name) {
-      return `Изменено поле "${getFieldLabel(entry.field_name)}"`;
+      return `Field changed: "${getFieldLabel(entry.field_name)}"`;
     }
     return entry.action;
   };
@@ -104,7 +103,7 @@ const LeadHistory = ({ leadId }: LeadHistoryProps) => {
       <Card className="p-6">
         <div className="flex items-center gap-2 mb-4">
           <History className="h-5 w-5 text-primary" />
-          <h3 className="text-lg font-semibold">История изменений</h3>
+          <h3 className="text-lg font-semibold">Change History</h3>
         </div>
         <div className="animate-pulse space-y-4">
           <div className="h-16 bg-muted rounded"></div>
@@ -118,13 +117,13 @@ const LeadHistory = ({ leadId }: LeadHistoryProps) => {
     <Card className="p-6">
       <div className="flex items-center gap-2 mb-6">
         <History className="h-5 w-5 text-primary" />
-        <h3 className="text-lg font-semibold">История изменений ({history.length})</h3>
+        <h3 className="text-lg font-semibold">Change History ({history.length})</h3>
       </div>
 
       <div className="space-y-4">
         {history.length === 0 ? (
           <p className="text-center text-muted-foreground py-8">
-            История пуста
+            No history
           </p>
         ) : (
           <div className="relative">
@@ -140,14 +139,14 @@ const LeadHistory = ({ leadId }: LeadHistoryProps) => {
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="h-3 w-3 text-muted-foreground" />
                     <span className="text-muted-foreground">
-                      {format(new Date(entry.created_at), 'd MMMM yyyy, HH:mm', { locale: ru })}
+                      {format(new Date(entry.created_at), 'd MMMM yyyy, HH:mm')}
                     </span>
                   </div>
                   
                   <p className="font-medium">{getActionText(entry)}</p>
                   
                   <p className="text-sm text-muted-foreground">
-                    {entry.profiles?.full_name || entry.profiles?.email || 'Система'}
+                    {entry.profiles?.full_name || entry.profiles?.email || 'System'}
                   </p>
                   
                   {entry.old_value && entry.new_value && (

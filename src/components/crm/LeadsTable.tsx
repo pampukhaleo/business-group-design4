@@ -125,16 +125,16 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
 
   const getStatusLabel = (status: LeadStatus) => {
     switch (status) {
-      case 'new': return 'Новая';
-      case 'in_progress': return 'В работе';
-      case 'completed': return 'Выполнена';
+      case 'new': return 'New';
+      case 'in_progress': return 'In Progress';
+      case 'completed': return 'Completed';
     }
   };
 
   if (leads.length === 0) {
     return (
       <div className="text-center py-12 text-muted-foreground">
-        Нет заявок
+        No leads
       </div>
     );
   }
@@ -158,13 +158,13 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
                 >
                   <SelectTrigger className={`w-[120px] text-xs ${getStatusColor(lead.status)}`}>
                     <SelectValue>
-                      {loadingStatus === lead.id ? 'Сохранение...' : getStatusLabel(lead.status)}
+                      {loadingStatus === lead.id ? 'Saving...' : getStatusLabel(lead.status)}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="new">Новая</SelectItem>
-                    <SelectItem value="in_progress">В работе</SelectItem>
-                    <SelectItem value="completed">Выполнена</SelectItem>
+                    <SelectItem value="new">New</SelectItem>
+                    <SelectItem value="in_progress">In Progress</SelectItem>
+                    <SelectItem value="completed">Completed</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -175,7 +175,7 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
 
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">Цена</p>
+                  <p className="text-xs text-muted-foreground mb-1">Price</p>
                   {editingPrice === lead.id ? (
                     <Input
                       ref={inputRef}
@@ -194,7 +194,7 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
                       className="text-sm font-semibold cursor-pointer hover:bg-accent rounded px-2 py-1 -ml-2"
                       onClick={() => handlePriceClick(lead.id, lead.price)}
                     >
-                      {loadingPrice === lead.id ? 'Сохранение...' : formatPrice(lead.price)}
+                      {loadingPrice === lead.id ? 'Saving...' : formatPrice(lead.price)}
                     </p>
                   )}
                 </div>
@@ -211,7 +211,7 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
                   className="flex-1"
                 >
                   <Eye className="h-4 w-4 mr-2" />
-                  Открыть
+                  Open
                 </Button>
                 <Button
                   size="sm"
@@ -220,7 +220,7 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
                   className="flex-1"
                 >
                   <Trash2 className="h-4 w-4 mr-2" />
-                  Удалить
+                  Delete
                 </Button>
               </div>
             </div>
@@ -235,14 +235,14 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Имя</TableHead>
+            <TableHead>Name</TableHead>
             <TableHead className="hidden md:table-cell">Email</TableHead>
-            <TableHead className="hidden lg:table-cell">Телефон</TableHead>
-            <TableHead>Тема</TableHead>
-            <TableHead>Цена</TableHead>
-            <TableHead>Статус</TableHead>
-            <TableHead className="hidden lg:table-cell">Дата</TableHead>
-            <TableHead className="text-right">Действия</TableHead>
+            <TableHead className="hidden lg:table-cell">Phone</TableHead>
+            <TableHead>Subject</TableHead>
+            <TableHead>Price</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="hidden lg:table-cell">Date</TableHead>
+            <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -271,7 +271,7 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
                     className="cursor-pointer hover:bg-accent rounded px-2 py-1 -ml-2 inline-block"
                     onClick={() => handlePriceClick(lead.id, lead.price)}
                   >
-                    {loadingPrice === lead.id ? 'Сохранение...' : formatPrice(lead.price)}
+                    {loadingPrice === lead.id ? 'Saving...' : formatPrice(lead.price)}
                   </span>
                 )}
               </TableCell>
@@ -283,13 +283,13 @@ const LeadsTable = ({ leads, onDelete, onStatusChange, onPriceChange }: LeadsTab
                 >
                   <SelectTrigger className={`w-[140px] ${getStatusColor(lead.status)}`}>
                     <SelectValue>
-                      {loadingStatus === lead.id ? 'Сохранение...' : getStatusLabel(lead.status)}
+                      {loadingStatus === lead.id ? 'Saving...' : getStatusLabel(lead.status)}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="new">Новая</SelectItem>
-                    <SelectItem value="in_progress">В работе</SelectItem>
-                    <SelectItem value="completed">Выполнена</SelectItem>
+                    <SelectItem value="new">New</SelectItem>
+                    <SelectItem value="in_progress">In Progress</SelectItem>
+                    <SelectItem value="completed">Completed</SelectItem>
                   </SelectContent>
                 </Select>
               </TableCell>

@@ -11,11 +11,11 @@ import { ArrowLeft, Plus } from 'lucide-react';
 import { z } from 'zod';
 
 const leadSchema = z.object({
-  name: z.string().min(1, 'Имя обязательно'),
-  email: z.string().email('Неверный email'),
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().email('Invalid email'),
   phone: z.string().optional(),
-  subject: z.string().min(1, 'Тема обязательна'),
-  message: z.string().min(1, 'Сообщение обязательно')
+  subject: z.string().min(1, 'Subject is required'),
+  message: z.string().min(1, 'Message is required')
 });
 
 const NewLead = () => {
@@ -53,8 +53,8 @@ const NewLead = () => {
       if (error) throw error;
 
       toast({
-        title: 'Успешно',
-        description: 'Заявка создана'
+        title: 'Success',
+        description: 'Lead created'
       });
 
       navigate('/crm');
@@ -69,8 +69,8 @@ const NewLead = () => {
         setErrors(newErrors);
       } else {
         toast({
-          title: 'Ошибка',
-          description: 'Не удалось создать заявку',
+          title: 'Error',
+          description: 'Failed to create lead',
           variant: 'destructive'
         });
       }
@@ -83,16 +83,16 @@ const NewLead = () => {
     <div className="container mx-auto px-4 py-8">
       <Button variant="outline" onClick={() => navigate('/crm')} className="mb-6">
         <ArrowLeft className="h-4 w-4 mr-2" />
-        Назад к списку
+        Back to list
       </Button>
 
       <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold text-primary mb-6">Создать новую заявку</h1>
+        <h1 className="text-3xl font-bold text-primary mb-6">Create New Lead</h1>
 
         <Card className="p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="name">Имя *</Label>
+              <Label htmlFor="name">Name *</Label>
               <Input
                 id="name"
                 value={formData.name}
@@ -116,7 +116,7 @@ const NewLead = () => {
               </div>
 
               <div>
-                <Label htmlFor="phone">Телефон</Label>
+                <Label htmlFor="phone">Phone</Label>
                 <Input
                   id="phone"
                   value={formData.phone}
@@ -126,7 +126,7 @@ const NewLead = () => {
             </div>
 
             <div>
-              <Label htmlFor="subject">Тема *</Label>
+              <Label htmlFor="subject">Subject *</Label>
               <Input
                 id="subject"
                 value={formData.subject}
@@ -137,7 +137,7 @@ const NewLead = () => {
             </div>
 
             <div>
-              <Label htmlFor="message">Сообщение *</Label>
+              <Label htmlFor="message">Message *</Label>
               <Textarea
                 id="message"
                 value={formData.message}
@@ -149,7 +149,7 @@ const NewLead = () => {
 
             <Button type="submit" disabled={saving}>
               <Plus className="h-4 w-4 mr-2" />
-              {saving ? 'Создание...' : 'Создать заявку'}
+              {saving ? 'Creating...' : 'Create Lead'}
             </Button>
           </form>
         </Card>

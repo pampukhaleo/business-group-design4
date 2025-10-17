@@ -9,17 +9,17 @@ interface StatusBadgeProps {
 const StatusBadge = ({ status }: StatusBadgeProps) => {
   const statusConfig = {
     new: {
-      label: 'Новая',
+      label: 'New',
       variant: 'default' as const,
       className: 'bg-blue-500 hover:bg-blue-600'
     },
     in_progress: {
-      label: 'В работе',
+      label: 'In Progress',
       variant: 'secondary' as const,
       className: 'bg-yellow-500 hover:bg-yellow-600'
     },
     completed: {
-      label: 'Выполнена',
+      label: 'Completed',
       variant: 'outline' as const,
       className: 'bg-green-500 hover:bg-green-600 text-white border-green-600'
     }
