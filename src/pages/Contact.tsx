@@ -35,7 +35,7 @@ const Contact = () => {
         "postalCode": "21107",
         "addressCountry": "DE"
       },
-      "telephone": ["+49-157-525-95235", "0021694237848"],
+      "telephone": ["+49-157-525-95235", "+216-94-237-848"],
       "email": "info@globalbridgeagency.de"
     }
   };
@@ -129,7 +129,7 @@ const Contact = () => {
       content: (
         <>
           <a href="tel:+4915752595235" className="hover:underline block">+49 157 525 95235</a>
-          <a href="tel:0021694237848" className="hover:underline block">0021694237848</a>
+          <a href="tel:+21694237848" className="hover:underline block">+216 94 237 848</a>
         </>
       ),
       link: ""
@@ -152,7 +152,7 @@ const Contact = () => {
     <>
       <SEO
         title="Kontakt - Global bridge agency AML (UG) Hamburg"
-        description="Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Zeidlerstraße 12, 21107 Hamburg. Telefon: +49 157 525 95235 oder 0021694237848, Email: info@globalbridgeagency.de"
+        description="Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Zeidlerstraße 12, 21107 Hamburg. Telefon: +49 157 525 95235 oder +216 94 237 848, Email: info@globalbridgeagency.de"
         keywords="Kontakt, Global bridge agency, Hamburg, Zeidlerstraße, Beratung"
         canonicalUrl="https://globalbridge-agency.de/kontakt"
         jsonLd={jsonLd}

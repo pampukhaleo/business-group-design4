@@ -36,7 +36,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
             Professionelle Geschäftslösungen
-            <span className="block text-accent">in Deutschland</span>
+            <span className="block text-accent">für Sie</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed max-w-3xl mx-auto">
