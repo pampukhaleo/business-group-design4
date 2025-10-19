@@ -29,7 +29,7 @@ const HeroSection = () => {
           loading="eager"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-background/95"></div>
+        <div className="absolute inset-0 bg-hero-gradient opacity-75"></div>
       </div>
 
       {/* Content */}
@@ -71,11 +71,11 @@ const HeroSection = () => {
 
             {/* Logo - Right on desktop, Top on mobile */}
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-              <div className="w-full max-w-md lg:max-w-lg animate-fade-in bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
+              <div className="w-full max-w-md lg:max-w-lg animate-fade-in">
                 <img
                   src={logo}
                   alt="Global bridge agency AML (UG) Logo"
-                  className="w-full h-auto hover-scale"
+                  className="w-full h-auto drop-shadow-2xl hover-scale"
                   loading="eager"
                   fetchPriority="high"
                 />
