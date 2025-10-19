@@ -63,17 +63,22 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Kontakt</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Musterstraße 123</li>
-              <li>10115 Berlin</li>
+              <li>Zeidlerstraße 12</li>
+              <li>21107 Hamburg</li>
               <li>Deutschland</li>
               <li>
-                <a href="tel:+493012345678" className="hover:text-primary transition-colors">
-                  +49 (0) 30 12345678
+                <a href="tel:+4915752595235" className="hover:text-primary transition-colors">
+                  +49 157 525 95235
                 </a>
               </li>
               <li>
-                <a href="mailto:info@globalbridge-agency.de" className="hover:text-primary transition-colors">
-                  info@globalbridge-agency.de
+                <a href="tel:+21694237848" className="hover:text-primary transition-colors">
+                  +216 94 237 848
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@globalbridgeagency.de" className="hover:text-primary transition-colors">
+                  info@globalbridgeagency.de
                 </a>
               </li>
             </ul>

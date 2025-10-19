@@ -33,7 +33,7 @@ const QuickContactButtons = ({ variant = "fixed", className }: QuickContactButto
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      href: "https://wa.me/4940123456789",
+      href: "https://wa.me/4915752595235",
       color: "text-green-500", 
       hoverColor: "hover:bg-green-500 hover:text-white"
     }

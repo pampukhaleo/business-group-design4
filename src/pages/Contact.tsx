@@ -24,7 +24,7 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Kontakt - Global bridge agency AML (UG)",
-    "description": "Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Telefon: +49 157 525 95235, Email: info@globalbridgeagency.de",
+    "description": "Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Telefon: +49 157 525 95235, +216 94 237 848, Email: info@globalbridgeagency.de",
     "mainEntity": {
       "@type": "Organization",
       "name": "Global bridge agency AML (UG)",
