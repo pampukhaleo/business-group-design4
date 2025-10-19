@@ -21,9 +21,9 @@ const Impressum = () => {
               <section>
                 <h2 className="text-2xl font-semibold mb-4 text-foreground">Angaben gemäß § 5 TMG</h2>
                 <div className="space-y-2 text-muted-foreground">
-                  <p className="font-semibold text-foreground">GlobalBridge Agency</p>
-                  <p>Musterstraße 123</p>
-                  <p>10115 Berlin</p>
+                  <p className="font-semibold text-foreground">Global bridge agency AML (UG)</p>
+                  <p>Zeidlerstraße 12</p>
+                  <p>21107 Hamburg</p>
                   <p>Deutschland</p>
                 </div>
               </section>
@@ -32,7 +32,10 @@ const Impressum = () => {
                 <h2 className="text-2xl font-semibold mb-4 text-foreground">Kontakt</h2>
                 <div className="space-y-2 text-muted-foreground">
                   <p>
-                    <span className="font-semibold text-foreground">Telefon:</span> +49 (0) 30 12345678
+                    <span className="font-semibold text-foreground">Telefon:</span> +491 57 525 95235
+                  </p>
+                  <p>
+                    <span className="font-semibold text-foreground">Telefon:</span> +216 94 237 848
                   </p>
                   <p>
                     <span className="font-semibold text-foreground">E-Mail:</span>{" "}
@@ -73,8 +76,8 @@ const Impressum = () => {
                 <h2 className="text-2xl font-semibold mb-4 text-foreground">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
                 <div className="space-y-2 text-muted-foreground">
                   <p>Max Mustermann</p>
-                  <p>Musterstraße 123</p>
-                  <p>10115 Berlin</p>
+                  <p>Zeidlerstraße 12</p>
+                  <p>21107 Hamburg</p>
                 </div>
               </section>
 

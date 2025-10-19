@@ -68,7 +68,7 @@ const Footer = () => {
               <li>Deutschland</li>
               <li>
                 <a href="tel:+4915752595235" className="hover:text-primary transition-colors">
-                  +49 157 525 95235
+                  +491 57 525 95235
                 </a>
               </li>
               <li>
@@ -77,8 +77,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@globalbridgeagency.de" className="hover:text-primary transition-colors">
-                  info@globalbridgeagency.de
+                <a href="mailto:info@globalbridge-agency.de" className="hover:text-primary transition-colors">
+                  info@globalbridge-agency.de
                 </a>
               </li>
             </ul>

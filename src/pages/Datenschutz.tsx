@@ -71,11 +71,12 @@ const Datenschutz = () => {
                   Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
                 </p>
                 <div className="text-muted-foreground space-y-1 mb-4">
-                  <p className="font-semibold text-foreground">GlobalBridge Agency</p>
-                  <p>Musterstraße 123</p>
-                  <p>10115 Berlin</p>
+                  <p className="font-semibold text-foreground">Global bridge agency AML (UG)</p>
+                  <p>Zeidlerstraße 12</p>
+                  <p>21107 Hamburg</p>
                   <p>Deutschland</p>
-                  <p>Telefon: +49 (0) 30 12345678</p>
+                  <p>Telefon: +491 57 525 95235</p>
+                  <p>Telefon: +216 94 237 848</p>
                   <p>
                     E-Mail:{" "}
                     <a href="mailto:info@globalbridge-agency.de" className="text-primary hover:underline">

@@ -24,7 +24,7 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Kontakt - Global bridge agency AML (UG)",
-    "description": "Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Telefon: +49 157 525 95235, +216 94 237 848, Email: info@globalbridgeagency.de",
+    "description": "Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Telefon: +491 57 525 95235, +216 94 237 848, Email: info@globalbridge-agency.de",
     "mainEntity": {
       "@type": "Organization",
       "name": "Global bridge agency AML (UG)",
@@ -35,8 +35,8 @@ const Contact = () => {
         "postalCode": "21107",
         "addressCountry": "DE"
       },
-      "telephone": ["+49-157-525-95235", "+216-94-237-848"],
-      "email": "info@globalbridgeagency.de"
+      "telephone": ["+491-57-525-95235", "+216-94-237-848"],
+      "email": "info@globalbridge-agency.de"
     }
   };
   const { toast } = useToast();
@@ -120,15 +120,15 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "E-Mail",
-      content: "info@globalbridgeagency.de",
-      link: "mailto:info@globalbridgeagency.de"
+      content: "info@globalbridge-agency.de",
+      link: "mailto:info@globalbridge-agency.de"
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Telefon",
       content: (
         <>
-          <a href="tel:+4915752595235" className="hover:underline block">+49 157 525 95235</a>
+          <a href="tel:+4915752595235" className="hover:underline block">+491 57 525 95235</a>
           <a href="tel:+21694237848" className="hover:underline block">+216 94 237 848</a>
         </>
       ),
@@ -152,7 +152,7 @@ const Contact = () => {
     <>
       <SEO
         title="Kontakt - Global bridge agency AML (UG) Hamburg"
-        description="Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Zeidlerstraße 12, 21107 Hamburg. Telefon: +49 157 525 95235 oder +216 94 237 848, Email: info@globalbridgeagency.de"
+        description="Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Zeidlerstraße 12, 21107 Hamburg. Telefon: +491 57 525 95235 oder +216 94 237 848, Email: info@globalbridge-agency.de"
         keywords="Kontakt, Global bridge agency, Hamburg, Zeidlerstraße, Beratung"
         canonicalUrl="https://globalbridge-agency.de/kontakt"
         jsonLd={jsonLd}

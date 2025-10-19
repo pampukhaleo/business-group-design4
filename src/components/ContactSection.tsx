@@ -30,7 +30,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">E-Mail</h3>
-                <p className="opacity-80">info@globalbridgeagency.de</p>
+                <p className="opacity-80">info@globalbridge-agency.de</p>
               </div>
             </div>
 
@@ -40,7 +40,7 @@ const ContactSection = () => {
               </div>
               <div className="text-center">
                 <h3 className="font-semibold mb-1">Telefon</h3>
-                <p className="opacity-80">+49 157 525 95235</p>
+                <p className="opacity-80">+491 57 525 95235</p>
                 <p className="opacity-80">+216 94 237 848</p>
               </div>
             </div>

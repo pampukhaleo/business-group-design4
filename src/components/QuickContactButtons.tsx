@@ -12,7 +12,7 @@ const QuickContactButtons = ({ variant = "fixed", className }: QuickContactButto
     {
       name: "E-Mail",
       icon: Mail,
-      href: "mailto:info@globalbridgeagency.de",
+      href: "mailto:info@globalbridge-agency.de",
       color: "text-accent",
       hoverColor: "hover:bg-accent hover:text-accent-foreground"
     },
