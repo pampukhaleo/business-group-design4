@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Stethoscope, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
@@ -12,30 +12,24 @@ interface ServiceCardProps {
   href?: string;
 }
 
-const getServiceIcon = (title: string) => {
-  if (title.includes("Personal")) return Users;
-  if (title.includes("Medizin")) return Stethoscope;
-  if (title.includes("Generator")) return Zap;
-  return Users;
-};
-
 const ServiceCard = ({ title, description, features, image, imageAlt, accent = false, href }: ServiceCardProps) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const Icon = getServiceIcon(title);
-
   const CardContent = (
     <div className="h-full flex flex-col">
-      {/* Icon section with glassmorphism */}
-      <div className="relative h-48 bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center overflow-hidden rounded-t-2xl">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
-        <div className="relative z-10 glass-strong rounded-2xl p-6 group-hover:scale-110 transition-transform duration-500">
-          <Icon className="w-16 h-16 text-accent group-hover:animate-bounce-in" />
-        </div>
-        {/* Decorative blur circles */}
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+      {/* Image section */}
+      <div className="relative h-64 overflow-hidden rounded-t-2xl">
+        <img 
+          src={image} 
+          alt={imageAlt}
+          className="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-500"
+        />
+        {/* Gradient overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent"></div>
+        {/* Decorative accent border */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </div>
 
       {/* Content section */}
