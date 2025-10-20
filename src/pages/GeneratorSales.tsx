@@ -163,7 +163,7 @@ const GeneratorSales = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Unser Generator-Portfolio
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -243,8 +243,8 @@ const GeneratorSales = () => {
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-in">
-              <Award className="h-16 w-16 text-primary mx-auto mb-6" />
-              <h2 className="text-4xl font-bold text-primary mb-6">
+              <Award className="h-16 w-16 text-accent mx-auto mb-6" />
+              <h2 className="text-4xl font-bold text-foreground mb-6">
                 Qualität & Zertifizierungen
               </h2>
               <p className="text-lg text-muted-foreground">

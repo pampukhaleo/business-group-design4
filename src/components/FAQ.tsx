@@ -46,8 +46,8 @@ const FAQ = ({ items, title = "Häufig gestellte Fragen", description }: FAQProp
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 animate-fade-in">
-              <HelpCircle className="h-16 w-16 text-primary mx-auto mb-6" />
-              <h2 className="text-4xl font-bold text-primary mb-4">
+              <HelpCircle className="h-16 w-16 text-accent mx-auto mb-6" />
+              <h2 className="text-4xl font-bold text-foreground mb-4">
                 {title}
               </h2>
               {description && (
@@ -62,9 +62,9 @@ const FAQ = ({ items, title = "Häufig gestellte Fragen", description }: FAQProp
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-card border-2 border-primary/20 rounded-lg px-6 hover:shadow-elegant transition-all duration-300"
+                  className="glass-strong border border-accent/20 rounded-lg px-6 hover:border-accent/40 transition-all duration-300"
                 >
-                  <AccordionTrigger className="text-left font-semibold text-card-foreground hover:text-primary">
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-accent">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
