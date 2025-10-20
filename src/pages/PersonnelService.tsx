@@ -174,21 +174,21 @@ const PersonnelService = () => {
             {categories.map((category, index) => (
               <Card 
                 key={index} 
-                className={`group hover:shadow-${category.color} transition-all duration-500 hover:scale-105 animate-slide-up border-0 bg-gradient-to-br from-card to-card/50`}
+                className="group glass-strong hover-lift hover-glow transition-all duration-500 animate-slide-up border border-accent/20"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between">
-                    <div className={`p-4 rounded-2xl bg-${category.color}/10 group-hover:bg-${category.color}/20 transition-colors duration-300`}>
-                      <div className={`text-${category.color}`}>
+                    <div className="p-4 rounded-2xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300">
+                      <div className="text-accent">
                         {category.icon}
                       </div>
                     </div>
                   </div>
-                  <CardTitle className="text-2xl font-bold text-card-foreground group-hover:text-primary transition-colors duration-300">
+                  <CardTitle className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
                     {category.title}
                   </CardTitle>
-                  <p className={`text-${category.color} font-medium`}>{category.subtitle}</p>
+                  <p className="text-accent font-medium">{category.subtitle}</p>
                   <p className="text-muted-foreground">{category.description}</p>
                 </CardHeader>
                 <CardContent>
@@ -196,10 +196,10 @@ const PersonnelService = () => {
                      {category.positions.map((position, posIndex) => (
                        <div 
                          key={posIndex}
-                          className="flex items-center space-x-2 p-3 rounded-lg bg-white border-2 border-personnel/40 shadow-medium hover:bg-secondary hover:shadow-large transition-all duration-300"
+                          className="flex items-center space-x-2 p-3 rounded-lg glass hover:glass-strong transition-all duration-300"
                         >
-                         <div className={`w-2 h-2 bg-${category.color} rounded-full flex-shrink-0`}></div>
-                         <span className="text-sm font-medium text-card-foreground">{position}</span>
+                         <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                         <span className="text-sm font-medium text-foreground">{position}</span>
                        </div>
                      ))}
                    </div>
@@ -226,9 +226,9 @@ const PersonnelService = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
-                <Card key={index} className="text-center p-8 hover:shadow-personnel transition-all duration-300 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <Card key={index} className="text-center p-8 glass-strong hover-glow transition-all duration-300 animate-scale-in border border-accent/20" style={{ animationDelay: `${index * 0.1}s` }}>
                   <CardContent className="space-y-4">
-                    <h3 className="text-xl font-bold text-card-foreground">{benefit.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{benefit.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
                   </CardContent>
                 </Card>
@@ -260,16 +260,16 @@ const PersonnelService = () => {
               <Link to="/kontakt">
                 <Button 
                   size="lg"
-                  className="bg-white text-personnel hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-accent text-accent-foreground hover:bg-accent-dark shadow-glow hover:shadow-glow-strong transition-all duration-300"
                 >
                   Als Arbeitgeber registrieren
                 </Button>
               </Link>
               <Link to="/kontakt">
                 <Button 
-                  variant="outline" 
+                  variant="secondary" 
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-personnel transition-all duration-300"
+                  className="bg-card text-foreground hover:bg-card/80 border border-accent/30 transition-all duration-300"
                 >
                   Stellenangebote ansehen
                 </Button>

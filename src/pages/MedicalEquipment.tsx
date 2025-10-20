@@ -175,29 +175,29 @@ const MedicalEquipment = () => {
             {equipmentCategories.map((category, index) => (
               <Card 
                 key={index} 
-                className={`group hover:shadow-${category.color} transition-all duration-500 animate-slide-up border-0 bg-gradient-to-br from-card to-card/50 overflow-hidden`}
+                className="group glass-strong hover-lift hover-glow transition-all duration-500 animate-slide-up border border-accent/20 overflow-hidden"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardHeader className="pb-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-4 rounded-2xl bg-${category.color}/10 group-hover:bg-${category.color}/20 transition-colors duration-300`}>
-                      <div className={`text-${category.color}`}>
+                    <div className="p-4 rounded-2xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300">
+                      <div className="text-accent">
                         {category.icon}
                       </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Badge className={`bg-${category.color}/10 text-${category.color} hover:bg-${category.color}/20`}>
+                      <Badge className="bg-accent/10 text-accent hover:bg-accent/20 border-accent/30">
                         {category.badge}
                       </Badge>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-xs border-accent/30">
                         {category.certification}
                       </Badge>
                     </div>
                   </div>
-                  <CardTitle className="text-3xl font-bold text-card-foreground group-hover:text-primary transition-colors duration-300">
+                  <CardTitle className="text-3xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
                     {category.title}
                   </CardTitle>
-                  <p className={`text-${category.color} font-semibold text-lg`}>{category.subtitle}</p>
+                  <p className="text-accent font-semibold text-lg">{category.subtitle}</p>
                   <p className="text-muted-foreground text-lg">{category.description}</p>
                 </CardHeader>
                 <CardContent>
@@ -205,24 +205,24 @@ const MedicalEquipment = () => {
                      {category.equipment.map((item, itemIndex) => (
                         <Card 
                           key={itemIndex}
-                          className="p-4 bg-white border-2 border-medical/40 shadow-medium hover:shadow-large transition-all duration-300 hover:scale-105"
+                          className="p-4 glass hover:glass-strong transition-all duration-300 hover:scale-105 border border-accent/20"
                         >
                          <div className="space-y-3">
                            <div className="flex items-center justify-between">
                              <div className="flex items-center space-x-2">
-                               <div className={`w-3 h-3 bg-${category.color} rounded-full flex-shrink-0`}></div>
-                               <h4 className="font-bold text-card-foreground text-sm">{item.name}</h4>
+                               <div className="w-3 h-3 bg-accent rounded-full flex-shrink-0"></div>
+                               <h4 className="font-bold text-foreground text-sm">{item.name}</h4>
                              </div>
-                             <CheckCircle className={`h-4 w-4 text-${category.color}`} />
+                             <CheckCircle className="h-4 w-4 text-accent" />
                            </div>
                            <div className="space-y-2 text-xs">
                              <div className="flex justify-between">
                                <span className="text-muted-foreground">Spezifikation:</span>
-                               <span className="font-medium text-card-foreground">{item.specs}</span>
+                               <span className="font-medium text-foreground">{item.specs}</span>
                              </div>
                              <div className="flex justify-between">
                                <span className="text-muted-foreground">Status:</span>
-                               <Badge className={`bg-${category.color}/10 text-${category.color} text-xs`}>
+                               <Badge className="bg-accent/10 text-accent text-xs border-accent/30">
                                  {item.status}
                                </Badge>
                              </div>
@@ -253,12 +253,12 @@ const MedicalEquipment = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-medical transition-all duration-300 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={index} className="text-center p-6 glass-strong hover-glow transition-all duration-300 animate-scale-in border border-accent/20" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="space-y-4">
-                  <div className="w-16 h-16 bg-medical/10 rounded-full flex items-center justify-center mx-auto">
-                    <Shield className="h-8 w-8 text-medical" />
+                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto">
+                    <Shield className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="font-bold text-card-foreground">{cert.name}</h3>
+                  <h3 className="font-bold text-foreground">{cert.name}</h3>
                   <p className="text-sm text-muted-foreground">{cert.description}</p>
                 </CardContent>
               </Card>
@@ -289,16 +289,16 @@ const MedicalEquipment = () => {
               <Link to="/kontakt">
                 <Button 
                   size="lg"
-                  className="bg-white text-medical hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-accent text-accent-foreground hover:bg-accent-dark shadow-glow hover:shadow-glow-strong transition-all duration-300"
                 >
                   Beratungstermin vereinbaren
                 </Button>
               </Link>
               <Link to="/kontakt">
                 <Button 
-                  variant="outline" 
+                  variant="secondary" 
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-medical transition-all duration-300"
+                  className="bg-card text-foreground hover:bg-card/80 border border-accent/30 transition-all duration-300"
                 >
                   Geräte-Katalog anfordern
                 </Button>
