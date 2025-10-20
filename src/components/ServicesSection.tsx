@@ -48,12 +48,18 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-24 bg-gradient-to-b from-background via-secondary to-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Unsere Dienstleistungen
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Unsere <span className="text-accent">Dienstleistungen</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Wir bieten umfassende Geschäftslösungen in drei Kernbereichen. 
@@ -62,19 +68,23 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="flex flex-col gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
-            <ServiceCard
+            <div 
               key={index}
-              title={service.title}
-              description={service.description}
-              features={service.features}
-              image={service.image}
-              imageAlt={service.imageAlt}
-              accent={service.accent}
-              href={service.href}
-              imagePosition={index % 2 === 0 ? 'left' : 'right'}
-            />
+              className="animate-scale-in"
+              style={{ animationDelay: `${index * 0.2}s`, animationFillMode: 'both' }}
+            >
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                features={service.features}
+                image={service.image}
+                imageAlt={service.imageAlt}
+                accent={service.accent}
+                href={service.href}
+              />
+            </div>
           ))}
         </div>
       </div>

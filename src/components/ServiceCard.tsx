@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, Stethoscope, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
@@ -10,82 +10,63 @@ interface ServiceCardProps {
   imageAlt: string;
   accent?: boolean;
   href?: string;
-  imagePosition?: 'left' | 'right';
 }
 
-const ServiceCard = ({ title, description, features, image, imageAlt, accent = false, href, imagePosition = 'left' }: ServiceCardProps) => {
+const getServiceIcon = (title: string) => {
+  if (title.includes("Personal")) return Users;
+  if (title.includes("Medizin")) return Stethoscope;
+  if (title.includes("Generator")) return Zap;
+  return Users;
+};
+
+const ServiceCard = ({ title, description, features, image, imageAlt, accent = false, href }: ServiceCardProps) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const ImageSection = (
-    <div className="relative h-full min-h-[400px] overflow-hidden w-full lg:w-1/2">
-      <img
-        src={image}
-        alt={imageAlt}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        loading="lazy"
-      />
-      <div className={`absolute inset-0 bg-gradient-to-r ${
-        accent ? 'from-accent/60 to-transparent' : 'from-primary/40 to-transparent'
-      }`}></div>
-    </div>
-  );
-
-  const ContentSection = (
-    <div className="p-8 lg:p-12 w-full lg:w-1/2 flex flex-col justify-center">
-      <h3 className={`text-3xl font-bold mb-4 ${
-        accent ? 'text-accent-foreground' : 'text-card-foreground'
-      }`}>
-        {title}
-      </h3>
-      
-      <p className={`text-lg mb-6 leading-relaxed ${
-        accent ? 'text-accent-foreground/90' : 'text-muted-foreground'
-      }`}>
-        {description}
-      </p>
-
-      {/* Features List */}
-      <ul className="space-y-3 mb-8">
-        {features.map((feature, index) => (
-          <li key={index} className={`flex items-start space-x-3 ${
-            accent ? 'text-accent-foreground/90' : 'text-card-foreground'
-          }`}>
-            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
-              accent ? 'bg-accent-foreground/60' : 'bg-accent'
-            }`}></div>
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* CTA Button */}
-      <Button 
-        variant={accent ? "secondary" : "default"}
-        className={`w-full lg:w-auto group-hover:scale-105 transition-transform duration-300 ${
-          accent ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent hover:bg-accent-dark text-accent-foreground'
-        }`}
-      >
-        Mehr erfahren
-        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-      </Button>
-    </div>
-  );
+  const Icon = getServiceIcon(title);
 
   const CardContent = (
-    <div className="flex flex-col lg:flex-row">
-      {imagePosition === 'left' ? (
-        <>
-          {ImageSection}
-          {ContentSection}
-        </>
-      ) : (
-        <>
-          {ContentSection}
-          {ImageSection}
-        </>
-      )}
+    <div className="h-full flex flex-col">
+      {/* Icon section with glassmorphism */}
+      <div className="relative h-48 bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center overflow-hidden rounded-t-2xl">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
+        <div className="relative z-10 glass-strong rounded-2xl p-6 group-hover:scale-110 transition-transform duration-500">
+          <Icon className="w-16 h-16 text-accent group-hover:animate-bounce-in" />
+        </div>
+        {/* Decorative blur circles */}
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+      </div>
+
+      {/* Content section */}
+      <div className="flex-1 p-6 flex flex-col">
+        <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors duration-300">
+          {title}
+        </h3>
+        
+        <p className="text-muted-foreground mb-6 leading-relaxed">
+          {description}
+        </p>
+
+        {/* Features List */}
+        <ul className="space-y-2 mb-6 flex-1">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-start space-x-2 text-sm text-muted-foreground">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0 group-hover:animate-pulse"></div>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA Button */}
+        <Button 
+          variant="default"
+          className="w-full bg-accent hover:bg-accent-dark text-accent-foreground shadow-glow hover:shadow-glow-strong transition-all duration-300 group/btn"
+        >
+          Mehr erfahren
+          <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+        </Button>
+      </div>
     </div>
   );
 
@@ -94,9 +75,7 @@ const ServiceCard = ({ title, description, features, image, imageAlt, accent = f
       <Link 
         to={href} 
         onClick={scrollToTop}
-        className={`group block relative overflow-hidden rounded-2xl shadow-large hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer ${
-          accent ? 'bg-accent-gradient' : 'bg-card-gradient'
-        }`}
+        className="group block h-full glass-strong rounded-2xl overflow-hidden hover-lift hover-glow transition-all duration-500 cursor-pointer border border-accent/20"
       >
         {CardContent}
       </Link>
@@ -104,9 +83,7 @@ const ServiceCard = ({ title, description, features, image, imageAlt, accent = f
   }
 
   return (
-    <div className={`group relative overflow-hidden rounded-2xl shadow-large hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
-      accent ? 'bg-accent-gradient' : 'bg-card-gradient'
-    }`}>
+    <div className="group h-full glass-strong rounded-2xl overflow-hidden hover-lift hover-glow transition-all duration-500 border border-accent/20">
       {CardContent}
     </div>
   );

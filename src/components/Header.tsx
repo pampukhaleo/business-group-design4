@@ -43,17 +43,17 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-accent/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
+          <Link to="/" onClick={scrollToTop} className="flex items-center gap-3 group">
             <img 
               src={logo} 
               alt="Global bridge agency AML (UG) Logo" 
-              className="h-8 w-auto"
+              className="h-8 w-auto group-hover:scale-110 transition-transform duration-300"
             />
-            <h1 className="text-xl font-bold text-primary hidden sm:block">
+            <h1 className="text-xl font-bold text-foreground hidden sm:block">
               <span className="text-accent">Global bridge</span> agency AML (UG)
             </h1>
           </Link>
@@ -62,28 +62,31 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => handleNavClick('services')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="relative text-muted-foreground hover:text-accent transition-colors group"
             >
               Dienstleistungen
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </button>
             <button 
               onClick={() => handleNavClick('about')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="relative text-muted-foreground hover:text-accent transition-colors group"
             >
               Über uns
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </button>
             <Link 
               to="/kontakt" 
               onClick={scrollToTop}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="relative text-muted-foreground hover:text-accent transition-colors group"
             >
               Kontakt
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </Link>
             {user && canManageLeads && (
               <Link 
                 to="/crm" 
                 onClick={scrollToTop}
-                className="text-accent hover:text-accent-dark transition-colors font-medium"
+                className="px-4 py-2 bg-accent hover:bg-accent-dark text-accent-foreground rounded-lg transition-all duration-300 font-medium shadow-glow hover:shadow-glow-strong"
               >
                 CRM
               </Link>
@@ -96,6 +99,7 @@ const Header = () => {
                   await signOut();
                   navigate('/');
                 }}
+                className="hover:bg-accent/10 hover:text-accent transition-colors"
               >
                 <LogOut className="h-4 w-4" />
               </Button>
