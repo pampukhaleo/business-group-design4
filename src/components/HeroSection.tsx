@@ -69,15 +69,13 @@ const HeroSection = () => {
             {/* Logo - Right on desktop, Top on mobile */}
             <div className="flex justify-center lg:justify-end order-1 lg:order-2 animate-fade-in-right">
               <div className="relative w-full max-w-md lg:max-w-lg">
-                <div className="glass-strong rounded-3xl p-8 lg:p-12 shadow-glow hover:shadow-glow-strong transition-all duration-500 hover-lift pulse-glow">
-                  <img
-                    src={logo}
-                    alt="Global bridge agency AML (UG) Logo"
-                    className="w-full h-auto animate-float"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
-                </div>
+                <img
+                  src={logo}
+                  alt="Global bridge agency AML (UG) Logo"
+                  className="w-full h-auto drop-shadow-2xl hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300"
+                  loading="eager"
+                  fetchPriority="high"
+                />
               </div>
             </div>
           </div>
