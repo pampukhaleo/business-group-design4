@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-business.jpg";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logoNew.png";
 
 const HeroSection = () => {
   const navigate = useNavigate();
