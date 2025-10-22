@@ -19,7 +19,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-hero-gradient">
+    <section className="relative flex items-center justify-center overflow-hidden bg-hero-gradient">
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float"></div>
@@ -28,7 +28,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-12 md:py-20 lg:py-24">
+      <div className="relative z-10 container mx-auto px-6 py-8 md:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text Content - Left on desktop, Top on mobile */}
@@ -83,7 +83,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/50 to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background via-background/50 to-transparent z-10"></div>
     </section>
   );
 };
