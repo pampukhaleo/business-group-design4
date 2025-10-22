@@ -65,7 +65,7 @@ const Header = () => {
               alt="Global bridge agency AML (UG) Logo" 
               className="h-8 w-auto group-hover:scale-110 transition-transform duration-300"
             />
-            <h1 className="text-xl font-bold text-foreground hidden sm:block">
+            <h1 className="text-sm sm:text-xl font-bold text-foreground">
               <span className="text-accent">Global bridge</span> agency AML (UG)
             </h1>
           </Link>

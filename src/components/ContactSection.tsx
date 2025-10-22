@@ -11,7 +11,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-primary text-primary-foreground">
+    <section id="contact" className="py-12 md:py-16 lg:py-20 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -23,7 +23,7 @@ const ContactSection = () => {
             mit unseren professionellen Dienstleistungen unterstützen können.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 md:mb-10 lg:mb-12">
             <div className="flex flex-col items-center space-y-3">
               <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
                 <Mail className="h-8 w-8 text-accent-foreground" />

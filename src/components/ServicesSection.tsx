@@ -48,7 +48,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-background via-secondary to-background relative overflow-hidden">
+    <section id="services" className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-background via-secondary to-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
@@ -57,7 +57,7 @@ const ServicesSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Unsere <span className="text-accent">Dienstleistungen</span>
           </h2>

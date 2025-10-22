@@ -170,7 +170,7 @@ const Contact = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="py-20 bg-primary-gradient">
+      <section className="py-12 md:py-16 lg:py-20 bg-primary-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <Mail className="h-16 w-16 text-primary-foreground mx-auto mb-6" />
@@ -186,7 +186,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form and Info Section */}
-      <section className="py-20">
+      <section className="py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -289,7 +289,7 @@ const Contact = () => {
               
               {/* Contact Information */}
               <div>
-                <h2 className="text-2xl font-bold text-primary mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
                   Kontaktinformationen
                 </h2>
                 
@@ -323,7 +323,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="mt-8 p-6 bg-secondary/30 rounded-2xl">
-                  <h3 className="text-lg font-semibold text-primary mb-4">
+                  <h3 className="text-lg font-semibold text-foreground mb-4">
                     Warum Global bridge agency AML (UG) wählen?
                   </h3>
                   <ul className="space-y-2 text-muted-foreground">
