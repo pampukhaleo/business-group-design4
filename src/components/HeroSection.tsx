@@ -28,7 +28,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-28 pb-12 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24">
+      <div className="relative z-10 container mx-auto px-4 pt-20 pb-12 md:pt-24 md:pb-20 lg:pt-28 lg:pb-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text Content - Left on desktop, Top on mobile */}
