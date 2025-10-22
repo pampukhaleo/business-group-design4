@@ -57,13 +57,13 @@ const Header = () => {
       isScrolled ? 'bg-background/95 backdrop-blur-md' : 'bg-background/80 backdrop-blur-sm'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" onClick={scrollToTop} className="flex items-center gap-3 group">
             <img 
               src={logo} 
               alt="Global bridge agency AML (UG) Logo" 
-              className="h-8 w-auto group-hover:scale-110 transition-transform duration-300"
+              className="h-6 sm:h-8 w-auto group-hover:scale-110 transition-transform duration-300"
             />
             <h1 className="text-sm sm:text-xl font-bold text-foreground">
               <span className="text-accent">Global bridge</span> agency AML (UG)
