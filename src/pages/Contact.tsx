@@ -151,11 +151,15 @@ const Contact = () => {
   return (
     <>
       <SEO
-        title="Kontakt - Global bridge agency AML (UG) Hamburg"
-        description="Kontaktieren Sie Global bridge agency AML (UG) in Hamburg. Zeidlerstraße 12, 21107 Hamburg. Telefon: +491 57 525 95235 oder +216 94 237 848, Email: info@globalbridge-agency.de"
-        keywords="Kontakt, Global bridge agency, Hamburg, Zeidlerstraße, Beratung"
+        title="Kontakt - Global bridge agency AML (UG) | Zeidlerstraße 12, Hamburg"
+        description="Kontaktieren Sie Global bridge agency AML (UG) in Hamburg für Personalvermittlung, Medizintechnik und Generatoren. Telefon: +491 57 525 95235, +216 94 237 848, Email: info@globalbridge-agency.de"
+        keywords="Kontakt Hamburg, Global bridge agency Kontakt, Personalvermittlung Anfrage, Medizintechnik Beratung, Generatoren Anfrage, Zeidlerstraße Hamburg"
         canonicalUrl="https://globalbridge-agency.de/kontakt"
         jsonLd={jsonLd}
+        breadcrumbs={[
+          { name: "Home", url: "https://globalbridge-agency.de/" },
+          { name: "Kontakt", url: "https://globalbridge-agency.de/kontakt" }
+        ]}
       />
       <div className="min-h-screen bg-background">
         {/* Back Button */}
